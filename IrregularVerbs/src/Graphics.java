@@ -36,4 +36,32 @@ public class Graphics {
         System.out.println(vs + " " + variant1 + " " + vs + "     " + vs + " " + variant2 + " " + vs);
         System.out.println(ldc + hsVariant1 + rdc + "     " + ldc + hsVariant2 + rdc);
     }
+
+    public static void frameLearningType(String x, String y, String z) {
+        //титулка меню выбора типа обучения
+        String luc = String.valueOf('\u250C');
+        String ruc = String.valueOf('\u2510');
+        String ldc = String.valueOf('\u2514');
+        String rdc = String.valueOf('\u2518');
+        String vs = String.valueOf('\u2502');
+        String hs = String.valueOf('\u2500');
+        String hs14 = hs + hs + hs + hs + hs + hs + hs + hs + hs + hs + hs + hs + hs + hs;
+        System.out.println(luc + hs14 + ruc + "\t" + luc + hs14 + ruc + "\t" + luc + hs14 + ruc);
+        System.out.println(vs + " " + x + " " + vs + "\t" + vs + " " + y + " " + vs + "\t" + vs + " " + z + " " + vs + "\t\t\t\t\t\t\t\t" + "[RETURN (0)]" + "\t" + "[EXIT (E)]");
+        System.out.println(ldc + hs14 + rdc + "\t" + ldc + hs14 + rdc + "\t" + ldc + hs14 + rdc);
+    }
+
+    public static void frameExamType(String x, String y, String z, String q) {
+        //титулка меню выбора вида экзамена
+        String luc = String.valueOf('\u250C');
+        String ruc = String.valueOf('\u2510');
+        String ldc = String.valueOf('\u2514');
+        String rdc = String.valueOf('\u2518');
+        String vs = String.valueOf('\u2502');
+        String hs = String.valueOf('\u2500');
+        String hs14 = hs + hs + hs + hs + hs + hs + hs + hs + hs + hs + hs + hs + hs + hs;
+        System.out.println(luc + hs14 + ruc + "\t" + luc + hs14 + ruc + "\t" + luc + hs14 + ruc + "\t" + luc + hs14 + ruc);
+        System.out.println(vs + " " + x + " " + vs + "\t" + vs + " " + y + " " + vs + "\t" + vs + " " + z + " " + vs + "\t" + vs + " " + q + " " + vs + "\t\t\t" + "[RETURN (0)]" + "\t" + "[EXIT (E)]");
+        System.out.println(ldc + hs14 + rdc + "\t" + ldc + hs14 + rdc + "\t" + ldc + hs14 + rdc + "\t" + ldc + hs14 + rdc);
+    }
 }
