@@ -97,7 +97,7 @@ public class Data {
             {"think", "thought", "thought", "думати"},
             {"understand", "understood", "understood", "розуміти"},
             {"wake", "woke", "woken", "розбудити"},
-            {"leap", "leapt, leaped", "leapt, leaped", "стрибати"},
+            {"leap", "leapt leaped", "leapt leaped", "стрибати"},
             {"lean", "leant leaned", "leant leaned", "спиратися"},
             {"wear", "wore", "worn", "одягати"},
             {"overcome", "overcame", "overcome", "подолати"},
