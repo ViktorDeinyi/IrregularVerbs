@@ -45,6 +45,33 @@ public class Menus {
         }
 
     }
+    public static void levelOfDifficult(boolean complexity) {
+        //выбор уровня сложности
+        System.out.println("\t\t\tSelect the level of difficulty");
+        Graphics.frameLearningType("1.BASIC     ", "2.MEDIUM    ", "3.HARD      ");
+        askLevelOfDifficult = sc.next();
+        if (askLevelOfDifficult.equals("1")) {
+            active = Data.getWords1();
+            if (complexity) {
+            }
+        } else if (askLevelOfDifficult.equals("2")) {
+            active = Data.getWords2();
+            if (complexity) {
+            }
+        } else if (askLevelOfDifficult.equals("3")) {
+            active = Data.getWords3();
+            if (complexity) {
+            }
+        } else if (askLevelOfDifficult.equals("0")) {
+            learningType();
+        } else if (askLevelOfDifficult.equals("e") || askLevelOfDifficult.equals("E")) {
+            IrregularVerbs.Run.exit();
+        } else {
+            System.out.println("Looks like you entered the wrong characters. Let`s try again... ");
+            Menus.learningType();
+        }
+
+    }
 
 
     public static void examType() {
