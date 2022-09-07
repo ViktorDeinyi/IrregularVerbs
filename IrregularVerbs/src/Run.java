@@ -29,9 +29,3 @@ public class Run {
     public static boolean checkNewTest = true;
 
 
-
-    public static void exit() {
-        System.out.println("Thank you for using our application.");
-        System.exit(0);
-    }
-}
