@@ -27,6 +27,7 @@ public class Run {
 
     int[] checkOriginal;
     public static boolean checkNewTest = true;
+
     public static void lessonRun(String[][] activeMassive) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Choose amount of verbs you would like to learn ");
@@ -69,15 +70,12 @@ public class Run {
         System.out.println(amountOfVerbs);
 
 
-
-runLessonSection
         System.out.println("\n" + "What you would like to do next :  ");
         System.out.println("\t[Learn another verbs (1)]\t\t[Take a quiz with learned words (2)]\t\t\t\t[RETURN (0)]\t[EXIT (E)]");
         String nextStep = sc.next();
         if (nextStep.equals("1")) {
             lessonRun(activeMassive);
         } else if (nextStep.equals("2")) {
-            //Ð¿ÐµÑÐµÑÐ¾Ð´ Ð½Ð° exam Ð¿Ð¾ Ð²ÑÑÑÐµÐ½Ð½ÑÐ¼ ÑÐ»Ð¾Ð²Ð°Ð¼
             examRunL(3, 0, 1, 2, activeMassive, amountOfVerbs);
         } else if (nextStep.equals("0")) {
             Menus.learningType();
@@ -87,7 +85,6 @@ runLessonSection
             System.out.println("Looks like you entered the wrong characters. Let`s try again... ");
         }
     }
-
 
 
 
@@ -116,7 +113,7 @@ runLessonSection
             while (i < checkOriginal.length) {
                 if (checkOriginal[i] == wordNumber) {
                     wordNumber = randomNumber(activeMassive.length - 1);
-                    System.out.println("çàìåíà" + wordNumber);
+                    System.out.println("������" + wordNumber);
                     i = -1;
                 }
                 ++i;
@@ -159,13 +156,13 @@ runLessonSection
         boolean check = true;
         int resultRandom = 0;
         while (check) {
-//            System.out.println("êîë-âî ïðèìåðîâ: " + Number);
+//            System.out.println("���-�� ��������: " + Number);
             double x = Math.random();
 //            resultRandom1 = randomNumber(Number);
             resultRandom = (int) Math.round(x * Number);
-//            System.out.println("Ðàíäîìíîå ÷èñëî: " + x);
-//            System.out.println("Îêðóãëåííîå ðàíäîìíîå ÷èñëî: " + Math.round(x));
-//            System.out.println("Èíò ðåçóëüòàòà" + resultRandom);
+//            System.out.println("��������� �����: " + x);
+//            System.out.println("����������� ��������� �����: " + Math.round(x));
+//            System.out.println("��� ����������" + resultRandom);
 //            System.out.println((int)resultRandom);
 //            if (resultRandom1 > 0) {
 //                check = false;

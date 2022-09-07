@@ -32,13 +32,13 @@ public class Menus {
             complexity = true;
             levelOfDifficult(complexity);
             System.out.println("In this quiz you write the answer in the specified form of the given verb");
-            System.out.println(IrregularVerbs.Run.TEXT_RED + "Some words in v2() & v3() have two meanings, please enter them using a spase " + IrregularVerbs.Run.TEXT_RESET);
+            System.out.println(Run.TEXT_RED + "Some words in v2() & v3() have two meanings, please enter them using a spase " + Run.TEXT_RESET);
             System.out.println("The game goes to the first mistake. \n \t\t\tGood luck.  May the force be with you ...\n");
             superQuizInfo();
         } else if (askLearningType.equals("0")) {
             askAboutRegistration();
         } else if (askLearningType.equals("e") || askLearningType.equals("E")) {
-            IrregularVerbs.Run.exit();
+            Run.exit();
         } else {
             System.out.println("Looks like you entered the wrong characters. Let`s try again... ");
             Menus.learningType();
@@ -54,27 +54,27 @@ public class Menus {
         askExamType = sc.next();
         sc.nextLine();
         if (askExamType.equals("1")) {
-            System.out.println("Translate " + IrregularVerbs.Run.V1 + " \u2192 " + IrregularVerbs.Run.UKR);
+            System.out.println("Translate " + Run.V1 + " \u2192 " + Run.UKR);
             Run.checkNewTest=true;
-            IrregularVerbs.Run.examRun(0, 3, -1, -1, active);
+            Run.examRun(0, 3, -1, -1, active);
         } else if (askExamType.equals("2")) {
-            System.out.println("Translate " + IrregularVerbs.Run.UKR + " \u2192 " + IrregularVerbs.Run.V1);
+            System.out.println("Translate " + Run.UKR + " \u2192 " + Run.V1);
             Run.checkNewTest=true;
-            IrregularVerbs.Run.examRun(3, 0, -1, -1, active);
+            Run.examRun(3, 0, -1, -1, active);
         } else if (askExamType.equals("3")) {
-            System.out.println("Translate " + IrregularVerbs.Run.V1 + " \u2192 " + IrregularVerbs.Run.V2 + " & " + IrregularVerbs.Run.V3);
-            System.out.println(IrregularVerbs.Run.TEXT_RED + "Some words in v2() & v3() have two meanings, please enter them using a spase " + IrregularVerbs.Run.TEXT_RESET);
+            System.out.println("Translate " + Run.V1 + " \u2192 " + Run.V2 + " & " + Run.V3);
+            System.out.println(Run.TEXT_RED + "Some words in v2() & v3() have two meanings, please enter them using a spase " + Run.TEXT_RESET);
             Run.checkNewTest=true;
-            IrregularVerbs.Run.examRun(0, 1, 2, -1, active);
+            Run.examRun(0, 1, 2, -1, active);
         } else if (askExamType.equals("4")) {
-            System.out.println("Translate " + IrregularVerbs.Run.UKR + " \u2192 " + IrregularVerbs.Run.V1 + " & " + IrregularVerbs.Run.V2 + " & " + IrregularVerbs.Run.V3);
-            System.out.println(IrregularVerbs.Run.TEXT_RED + "Some words in v2() & v3() have two meanings, please enter them using a spase " + IrregularVerbs.Run.TEXT_RESET);
+            System.out.println("Translate " + Run.UKR + " \u2192 " + Run.V1 + " & " + Run.V2 + " & " + Run.V3);
+            System.out.println(Run.TEXT_RED + "Some words in v2() & v3() have two meanings, please enter them using a spase " + Run.TEXT_RESET);
             Run.checkNewTest=true;
-            IrregularVerbs.Run.examRun(3, 0, 1, 2, active);
+            Run.examRun(3, 0, 1, 2, active);
         } else if (askExamType.equals("0")) {
             learningType();
         } else if (askExamType.equals("e") || askExamType.equals("E")) {
-            IrregularVerbs.Run.exit();
+            Run.exit();
         } else System.out.println("Looks like you entered the wrong characters. Let`s try again... ");
         Menus.examType();
     }
@@ -109,9 +109,9 @@ public class Menus {
         if (askSuperQuiz.equals("0")) {
             Menus.learningType();
         } else if (askSuperQuiz.equals("1")) {
-            IrregularVerbs.Run.superQuizRun(active);
+            Run.superQuizRun(active);
         } else if (askSuperQuiz.equals("e") || askSuperQuiz.equals("E")) {
-            IrregularVerbs.Run.exit();
+            Run.exit();
         } else {
             System.out.println("Looks like you entered the wrong characters. Let`s try again... ");
             superQuizInfo();
@@ -120,7 +120,6 @@ public class Menus {
     
     //my new method about registration
     public static boolean askAboutRegistration() {
-        System.out.println("                 Hello!\nLet's start learning irregular verbs together!");
         System.out.println();
         while(true) {
             System.out.println("Would you like to register?  ");

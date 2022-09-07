@@ -1,4 +1,3 @@
-package IrregularVerbs;
 
 
 import java.io.*;

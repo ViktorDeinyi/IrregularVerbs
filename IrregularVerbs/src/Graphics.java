@@ -12,6 +12,7 @@ public class Graphics {
         System.out.print("  STUDY SOME IRREGULAR VERBS  ");
         System.out.println(l15);
         System.out.println(l15 + l15 + l15 + l15 + TEXT_RESET + "\n\n");
+        System.out.println("\n\n\n                 Hello!\nLet's start learning irregular verbs together!");
     }
 
     //My new method for draw two words with frame
