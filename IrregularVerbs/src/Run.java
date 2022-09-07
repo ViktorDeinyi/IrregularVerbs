@@ -27,6 +27,71 @@ public class Run {
 
     int[] checkOriginal;
     public static boolean checkNewTest = true;
+    public static void lessonRun(String[][] activeMassive) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Choose amount of verbs you would like to learn ");
+        System.out.println("[1-10 (1)]\t\t[11-20 (2)]\t\t[21-30 (3)]\t\t[31-40 (4)]\t\t[41-50 (5)]\t\t\t\t[RETURN (0)]");
+        byte amountOfVerbs = 0;
+        try {
+            amountOfVerbs = sc.nextByte();
+            sc.nextLine();
+        } catch (InputMismatchException exe) {
+            System.out.println("Ð¥Ð¼, Ð¿Ð¾ÑÐ¾Ð¶Ðµ Ð²Ð²ÐµÐ»Ð¸ Ð½ÐµÐºÐ¾ÑÑÐµÐºÑÐ½ÑÐ¹ ÑÐ¾ÑÐ¼Ð°Ñ ÑÐ¸ÑÑ ... \nÐÐ°Ð²Ð°Ð¹ Ð¿Ð¾Ð¿ÑÐ¾Ð±ÑÐµÐ¼ Ð²Ð²ÐµÑÑÐ¸ Ð¿ÑÐ°Ð²Ð¸Ð»ÑÐ½Ð¾:");
+            sc.nextLine();
+            lessonRun(activeMassive);
+        }
+        if (amountOfVerbs == 1) {
+            for (int i = 1; i < 11; i++) {
+                System.out.println(Arrays.toString(activeMassive[i]));
+            }
+        } else if (amountOfVerbs == 2) {
+            for (int i = 11; i < 21; i++) {
+                System.out.println(Arrays.toString(activeMassive[i]));
+            }
+        } else if (amountOfVerbs == 3) {
+            for (int i = 21; i < 31; i++) {
+                System.out.println(Arrays.toString(activeMassive[i]));
+            }
+        } else if (amountOfVerbs == 4) {
+            for (int i = 31; i < 41; i++) {
+                System.out.println(Arrays.toString(activeMassive[i]));
+            }
+        } else if (amountOfVerbs == 5) {
+            for (int i = 41; i < 51; i++) {
+                System.out.println(Arrays.toString(activeMassive[i]));
+            }
+        } else if (amountOfVerbs == 0) {
+            Menus.learningType();
+        } else {
+            System.out.println("Looks like we don't have enough cases for this lesson. Please choose another.");
+            lessonRun(activeMassive);
+        }
+        System.out.println(amountOfVerbs);
+
+
+
+runLessonSection
+        System.out.println("\n" + "What you would like to do next :  ");
+        System.out.println("\t[Learn another verbs (1)]\t\t[Take a quiz with learned words (2)]\t\t\t\t[RETURN (0)]\t[EXIT (E)]");
+        String nextStep = sc.next();
+        if (nextStep.equals("1")) {
+            lessonRun(activeMassive);
+        } else if (nextStep.equals("2")) {
+            //Ð¿ÐµÑÐµÑÐ¾Ð´ Ð½Ð° exam Ð¿Ð¾ Ð²ÑÑÑÐµÐ½Ð½ÑÐ¼ ÑÐ»Ð¾Ð²Ð°Ð¼
+            examRunL(3, 0, 1, 2, activeMassive, amountOfVerbs);
+        } else if (nextStep.equals("0")) {
+            Menus.learningType();
+        } else if (nextStep.equals("e") || nextStep.equals("E")) {
+            Run.exit();
+        } else {
+            System.out.println("Looks like you entered the wrong characters. Let`s try again... ");
+        }
+    }
+
+
+
+
+
 
     public static void examRun(int indexQuestion, int indexAnswer1, int indexAnswer2, int indexAnswer3, String[][] activeMassive) {
         if (checkNewTest) {
@@ -51,7 +116,7 @@ public class Run {
             while (i < checkOriginal.length) {
                 if (checkOriginal[i] == wordNumber) {
                     wordNumber = randomNumber(activeMassive.length - 1);
-                    System.out.println("������" + wordNumber);
+                    System.out.println("çàìåíà" + wordNumber);
                     i = -1;
                 }
                 ++i;
@@ -94,13 +159,13 @@ public class Run {
         boolean check = true;
         int resultRandom = 0;
         while (check) {
-//            System.out.println("���-�� ��������: " + Number);
+//            System.out.println("êîë-âî ïðèìåðîâ: " + Number);
             double x = Math.random();
 //            resultRandom1 = randomNumber(Number);
             resultRandom = (int) Math.round(x * Number);
-//            System.out.println("��������� �����: " + x);
-//            System.out.println("����������� ��������� �����: " + Math.round(x));
-//            System.out.println("��� ����������" + resultRandom);
+//            System.out.println("Ðàíäîìíîå ÷èñëî: " + x);
+//            System.out.println("Îêðóãëåííîå ðàíäîìíîå ÷èñëî: " + Math.round(x));
+//            System.out.println("Èíò ðåçóëüòàòà" + resultRandom);
 //            System.out.println((int)resultRandom);
 //            if (resultRandom1 > 0) {
 //                check = false;
