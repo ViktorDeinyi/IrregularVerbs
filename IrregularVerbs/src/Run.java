@@ -37,7 +37,7 @@ public class Run {
             amountOfVerbs = sc.nextByte();
             sc.nextLine();
         } catch (InputMismatchException exe) {
-            System.out.println("Ð¥Ð¼, Ð¿Ð¾ÑÐ¾Ð¶Ðµ Ð²Ð²ÐµÐ»Ð¸ Ð½ÐµÐºÐ¾ÑÑÐµÐºÑÐ½ÑÐ¹ ÑÐ¾ÑÐ¼Ð°Ñ ÑÐ¸ÑÑ ... \nÐÐ°Ð²Ð°Ð¹ Ð¿Ð¾Ð¿ÑÐ¾Ð±ÑÐµÐ¼ Ð²Ð²ÐµÑÑÐ¸ Ð¿ÑÐ°Ð²Ð¸Ð»ÑÐ½Ð¾:");
+            System.out.println("Sorry, looks like you've typed incorrect symbol... \nLet's try again :)");
             sc.nextLine();
             lessonRun(activeMassive);
         }
@@ -64,13 +64,13 @@ public class Run {
         } else if (amountOfVerbs == 0) {
             Menus.learningType();
         } else {
-            System.out.println("Looks like we don't have enough cases for this lesson. Please choose another.");
+            System.out.println("Sorry, we don't have enough cases for this lesson. Please choose the number between 1-5 to start learning.");
             lessonRun(activeMassive);
         }
         System.out.println(amountOfVerbs);
 
 
-        System.out.println("\n" + "What you would like to do next :  ");
+        System.out.println("\n" + "What you would like to do next? :  ");
         System.out.println("\t[Learn another verbs (1)]\t\t[Take a quiz with learned words (2)]\t\t\t\t[RETURN (0)]\t[EXIT (E)]");
         String nextStep = sc.next();
         if (nextStep.equals("1")) {
@@ -82,7 +82,7 @@ public class Run {
         } else if (nextStep.equals("e") || nextStep.equals("E")) {
             Run.exit();
         } else {
-            System.out.println("Looks like you entered the wrong characters. Let`s try again... ");
+            System.out.println("Sorry, looks like you've typed incorrect symbol... \nLet's try again :)");
         }
     }
 
