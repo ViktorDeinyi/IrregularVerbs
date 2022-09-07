@@ -113,7 +113,7 @@ public class Run {
             while (i < checkOriginal.length) {
                 if (checkOriginal[i] == wordNumber) {
                     wordNumber = randomNumber(activeMassive.length - 1);
-                    System.out.println("������" + wordNumber);
+                    System.out.println("Catcing word number" + wordNumber);
                     i = -1;
                 }
                 ++i;
@@ -160,9 +160,9 @@ public class Run {
             double x = Math.random();
 //            resultRandom1 = randomNumber(Number);
             resultRandom = (int) Math.round(x * Number);
-//            System.out.println("��������� �����: " + x);
-//            System.out.println("����������� ��������� �����: " + Math.round(x));
-//            System.out.println("��� ����������" + resultRandom);
+//            System.out.println("Random number: " + x);
+//            System.out.println("Round random number: " + Math.round(x));
+//            System.out.println("Res" + resultRandom);
 //            System.out.println((int)resultRandom);
 //            if (resultRandom1 > 0) {
 //                check = false;

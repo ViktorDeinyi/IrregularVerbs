@@ -65,7 +65,7 @@ public class Menus {
         } else if (askLevelOfDifficult.equals("0")) {
             learningType();
         } else if (askLevelOfDifficult.equals("e") || askLevelOfDifficult.equals("E")) {
-            IrregularVerbs.Run.exit();
+            Run.exit();
         } else {
             System.out.println("Looks like you entered the wrong characters. Let`s try again... ");
             Menus.learningType();
