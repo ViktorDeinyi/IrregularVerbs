@@ -117,5 +117,25 @@ public class Menus {
             superQuizInfo();
         }
     }
+    
+    //my new method about registration
+    public static boolean askAboutRegistration() {
+        System.out.println("                 Hello!\nLet's start learning irregular verbs together!");
+        System.out.println();
+        while(true) {
+            System.out.println("Would you like to register?  ");
+            Graphics.frameForTwoVariants("1.YES", "2.NO");
+            Scanner sc = new Scanner(System.in);
+            byte userAnswer = sc.nextByte();
+            if (userAnswer == 1) {
+                return true;
+            } else if (userAnswer == 2) {
+                return false;
+            } else {
+                System.out.println("Your answer is not correct. Try again.");
+                System.out.println();
+            }
+        }
+    }
 }
 
