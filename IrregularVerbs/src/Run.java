@@ -371,8 +371,8 @@ public class Run {
         index--;
         LocalTime finishTime = LocalTime.now();
         System.out.println("\nYour test results: ");
-        System.out.println("Test start time = " + startTime);
-        System.out.println("Test end time = " + finishTime + "\n");
+        /*System.out.println("Test start time = " + startTime);
+        System.out.println("Test end time = " + finishTime + "\n");*/
 
 
         int fh = finishTime.getHour();
