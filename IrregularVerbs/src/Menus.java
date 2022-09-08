@@ -59,7 +59,7 @@ public class Menus {
         sc.nextLine();
         if (Files.userIsExist(enterUserName)) {
             Files.userName = enterUserName;
-            System.out.println("\n\tHello " + Files.userName);
+            System.out.println("\n\tHello, " + Files.userName + "!");
             userMenu();
         } else {
             System.out.println("There is no user with such name ");
