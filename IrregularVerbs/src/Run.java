@@ -28,7 +28,7 @@ public class Run {
 
     public static void lessonRun(String[][] activeMassive) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Choose amount of verbs you would like to learn ");
+        System.out.println("Choose number of verbs you would like to learn ");
         System.out.println("[1-10 (1)]\t\t[11-20 (2)]\t\t[21-30 (3)]\t\t[31-40 (4)]\t\t[41-50 (5)]\t\t\t\t[RETURN (0)]");
         byte amountOfVerbs = 0;
         try {
@@ -83,10 +83,74 @@ public class Run {
             System.out.println("Sorry, looks like you've typed incorrect symbol... \nLet's try again :)");
         }
     }
+    public static void examRunL(int indexQuestion, int indexAnswer1, int indexAnswer2, int indexAnswer3, String[][] activeMassive, int amountOfWerbs) {
+            //exam after the lesson (no statistics here)
+            int[] indexAnswers = new int[]{indexQuestion, indexAnswer1, indexAnswer2, indexAnswer3};
+            int index = 0;
+            int cases = 10;
+            double error = 0;
+            int[] checkOriginal = new int[cases];
+            Scanner sc = new Scanner(System.in);
+            System.out.println(amountOfWerbs);
+            do {
+                cases--;
+                int wordNumber = randomNumber(checkOriginal.length) + ((amountOfWerbs * 10) - 10);
 
+                int i = 0;
+                while (i < checkOriginal.length) {
+                    if (checkOriginal[i] == wordNumber) {
+                        wordNumber = randomNumber(checkOriginal.length) + ((amountOfWerbs * 10) - 10);
+                     //  System.out.println("change" + wordNumber);
+                        i = -1;
+                    }
+                    ++i;
+                }
+                checkOriginal[index] = wordNumber;
 
+                ++index;
+                System.out.println(Arrays.toString(checkOriginal));
+                System.out.print("\n" + index + "/" + checkOriginal.length + "\t");
+                for (int x = 1; x <= 3; ++x) {
+                    System.out.print(names.get(indexAnswers[0]) + "\t" + activeMassive[wordNumber][indexAnswers[0]]);
+                    System.out.print("  =  " + names.get(indexAnswers[x]) + "  ");
+                    String name = sc.nextLine();
+                    name = name.toLowerCase();
+                    if (activeMassive[wordNumber][indexAnswers[x]].equals(name)) {
+                        System.out.println("Correct: " + TEXT_GREEN + activeMassive[wordNumber][indexAnswers[x]] + TEXT_RESET + "  =  " + TEXT_GREEN + name + TEXT_RESET);
+                    } else if (name.equals("0")) {
+                        System.out.println("\n\n\n");
+                        Menus.learningType();
+                    } else if (name.equals("e")) {
+                        IrregularVerbs.Run.exit();
+                    } else {
+                        System.out.println(TEXT_RED + "Mistake: " + TEXT_RESET + TEXT_GREEN + activeMassive[wordNumber][indexAnswers[x]] + TEXT_RESET + "  " + '\u2260' + "  " + TEXT_RED + name + TEXT_RESET);
+                        ++error;
+                    }
+                }
+            }
+            while (cases > 0);
 
+            System.out.println("The array of indices with correct answers:");
+            System.out.println(Arrays.toString(checkOriginal));
+            System.out.println("\n");
 
+            //the end of the exam on lesson, check on the exit options
+
+        System.out.println("\n" + "What you would like to do next? :  ");
+        System.out.println("\t[Learn another verbs (1)]\t\t[Take a quiz with learned words (2)]\t\t\t\t[RETURN (0)]\t[EXIT (E)]");
+        String nextStep = sc.next();
+        if (nextStep.equals("1")) {
+            lessonRun(activeMassive);
+        } else if (nextStep.equals("2")) {
+            examRunL(3, 0, 1, 2, activeMassive, amountOfVerbs);
+        } else if (nextStep.equals("0")) {
+            Menus.learningType();
+        } else if (nextStep.equals("e") || nextStep.equals("E")) {
+            Run.exit();
+        } else {
+            System.out.println("Sorry, looks like you've typed incorrect symbol... \nLet's try again :)");
+        }
+    }
 
     public static void examRun(int indexQuestion, int indexAnswer1, int indexAnswer2, int indexAnswer3, String[][] activeMassive) {
         if (checkNewTest) {
