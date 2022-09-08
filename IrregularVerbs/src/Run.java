@@ -111,10 +111,10 @@ public class Run {
 
             ++index;
             System.out.println(Arrays.toString(checkOriginal));
-            System.out.print("\n" + index + "/" + checkOriginal.length + "\t");
             for (int x = 1; x <= 3; ++x) {
                 String name;
                 do {
+                    System.out.print("\n" + index + "/" + checkOriginal.length + "\t");
                     System.out.print(names.get(indexAnswers[0]) + "\t" + activeMassive[wordNumber][indexAnswers[0]]);
                     System.out.print("  =  " + names.get(indexAnswers[x]) + "  ");
                     name = sc.nextLine();
@@ -358,7 +358,7 @@ public class Run {
                 name = name.toLowerCase();
                 // Check that the line is empty
                 if (name.isEmpty())
-                    System.err.println("The line is empty. You should enter the answer! Try again!");
+                    System.err.println(Graphics.TEXT_YELLOW+"The line is empty. You should enter the answer! Try again!"+Graphics.TEXT_RESET);
             }while (name.isEmpty());
             if (activeMassive[wordNumber][indexAnswer1].equals(name)) {
                 System.out.println("Correct: " + TEXT_GREEN + activeMassive[wordNumber][indexAnswer1] + TEXT_RESET + "  =  " + TEXT_GREEN + name + TEXT_RESET);
@@ -366,10 +366,10 @@ public class Run {
                 System.out.println(TEXT_RED + "Mistake: " + TEXT_RESET + TEXT_GREEN + activeMassive[wordNumber][indexAnswer1] + TEXT_RESET + "  " + '\u2260' + "  " + TEXT_RED + name + TEXT_RESET);
                 if (error == 3) {
                     life1 = Graphics.blackHeart;
-                    System.out.println("Oups you just answer wrong ");
+                    System.out.println(Graphics.TEXT_YELLOW+"Oops, your answer is wrong "+ Graphics.TEXT_RESET);
                 } else if (error == 2) {
                     life2 = Graphics.blackHeart;
-                    System.out.println("Be careful, you have only one mistake left ");
+                    System.out.println(Graphics.TEXT_YELLOW+"Be careful, you have only one mistake left "+ Graphics.TEXT_RESET);
                 }
                 error--;
             }
