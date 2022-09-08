@@ -1,5 +1,3 @@
-
-
 import java.time.LocalTime;
 import java.util.*;
 
@@ -150,6 +148,99 @@ public class Run {
         }
         while (Menus.cases > 0);
         LocalTime finishTime = LocalTime.now();
+        //creating an array of passed test words
+        String correct[][] = new String[checkOriginal.length + 1][4];
+        correct[0][0] = activeMassive[0][0];
+        correct[0][1] = activeMassive[0][1];
+        correct[0][2] = activeMassive[0][2];
+        correct[0][3] = activeMassive[0][3];
+        for (int i = 0; i < checkOriginal.length; i++) {
+            int x = checkOriginal[i];
+            for (int j = 0; j < 4; j++) {
+                correct[i + 1][j] = activeMassive[x][j];
+            }
+        }
+//        System.out.println(correct.length);
+//        System.out.println(correct[1].length);
+//        System.out.println(checkMistakes);
+//        System.out.println(checkMistakes.get(0));
+//        System.out.println(checkMistakes.size());
+//        System.out.println(checkMistakes.get(1));
+
+        //creating an array of test words with errors
+        String mistakes[][] = new String[checkMistakes.size() + 1][4];
+        mistakes[0][0] = activeMassive[0][0];
+        mistakes[0][1] = activeMassive[0][1];
+        mistakes[0][2] = activeMassive[0][2];
+        mistakes[0][3] = activeMassive[0][3];
+        for (int i = 0; i < checkMistakes.size(); i++) {
+            int x = checkMistakes.get(i);
+            for (int j = 0; j < 4; j++) {
+                mistakes[i + 1][j] = activeMassive[x][j];
+            }
+        }
+
+        System.out.println("\nYour test results: ");
+        /*System.out.println("Test start time = " + startTime);
+        System.out.println("Test end time = " + finishTime + "\n");*/
+
+//        System.out.println("Array of indexes with correct answers:");
+//        System.out.println(Arrays.toString(checkOriginal));
+//        System.out.println("\n");
+
+        //start and end time handling
+        int fh = finishTime.getHour();
+        int sh = startTime.getHour();
+        int fm = finishTime.getMinute();
+        int sm = startTime.getMinute();
+        int fs = finishTime.getSecond();
+        int ss = startTime.getSecond();
+        TimeCounter.timeChange(fh, fm, fs, sh, sm, ss);
+
+        //result processing
+        double result = (((checkOriginal.length) * amountOfAnswers) - error) / (checkOriginal.length * amountOfAnswers) * 100;
+//        double result = ((((double) checkOriginal.length) * amountOfAnswers) - error) / ((double) checkOriginal.length * amountOfAnswers) * 100;
+        result = Math.rint(result);
+        byte correctAnswersExam = (byte) (index*amountOfAnswers - error);
+        System.out.println("Number of correct answers: " + correctAnswersExam + "/" + index*amountOfAnswers);
+        if (result >= 80) {
+            System.out.println("Percentage of correct answer " + TEXT_GREEN + result + " %" + TEXT_RESET);
+        } else if (result >= 40) {
+            System.out.println("Percentage of correct answer: " + TEXT_YELLOW + result + " %" + TEXT_RESET);
+        } else if (result >= 0) {
+            System.out.println("Percentage of correct answer: " + TEXT_RED + result + " %" + TEXT_RESET + "\n\n");
+        }
+
+        //writing selected statistics to a file
+        IrregularVerbs.NewFile.writeToFile(IrregularVerbs.NewFile.userName, "\nStart time :" + startTime.toString() + "\tFinish time:" + finishTime.toString() + ".  Errors = " + error + ". Persent of wright answers = " + result + " %.\n");
+
+        //end of exam transition options
+        if (error == 0)
+            System.out.println("\n\t[TRY AGAIN (1)]\t\t[TRY SAME (2)]\t\t\t\t\t\t\t\t\t\t\t\t[RETURN (0)]\t[EXIT (E)]");
+        else
+            System.out.println("\t[TRY AGAIN (1)]\t\t[TRY SAME (2)]\t\t[WORK ON ERROR (3)]\t\t\t\t\t\t\t[RETURN (0)]\t[EXIT (E)]");
+        String nextStep = sc.next();
+        if (nextStep.equals("1")) {
+            checkNewTest = true;
+            Run.examRun(indexQuestion, indexAnswer1, indexAnswer2, indexAnswer3, Menus.active);
+        } else if (nextStep.equals("2")) {
+            checkNewTest = false;
+            Menus.cases = correct.length - 1;
+            System.out.println(Menus.cases);
+            Run.examRun(indexQuestion, indexAnswer1, indexAnswer2, indexAnswer3, correct);
+        } else if (nextStep.equals("3")) {
+            System.out.println(TEXT_GREEN + "Let's go working with your mistakes: " + TEXT_RESET + "\n");
+            checkNewTest = false;
+            Menus.cases = mistakes.length - 1;
+            System.out.println(Menus.cases);
+            Run.examRun(indexQuestion, indexAnswer1, indexAnswer2, indexAnswer3, mistakes);
+        } else if (nextStep.equals("0")) {
+            Menus.examType();
+        } else if (nextStep.equals("e") || nextStep.equals("E")) {
+            Run.exit();
+        } else {
+            System.out.println("Looks like you entered the wrong characters. Let`s try again... ");
+        }
     }
 
     public static int randomNumber(int Number) {
