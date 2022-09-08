@@ -113,10 +113,15 @@ public class Run {
             System.out.println(Arrays.toString(checkOriginal));
             System.out.print("\n" + index + "/" + checkOriginal.length + "\t");
             for (int x = 1; x <= 3; ++x) {
-                System.out.print(names.get(indexAnswers[0]) + "\t" + activeMassive[wordNumber][indexAnswers[0]]);
-                System.out.print("  =  " + names.get(indexAnswers[x]) + "  ");
-                String name = sc.nextLine();
-                name = name.toLowerCase();
+                String name;
+                do {
+                    System.out.print(names.get(indexAnswers[0]) + "\t" + activeMassive[wordNumber][indexAnswers[0]]);
+                    System.out.print("  =  " + names.get(indexAnswers[x]) + "  ");
+                    name = sc.nextLine();
+                    name = name.toLowerCase();
+                    if (name.isEmpty())
+                        System.out.println(Graphics.TEXT_YELLOW + "The line is empty. You should enter the answer! Try again!" + Graphics.TEXT_RESET);
+                }while (name.isEmpty());
                 if (activeMassive[wordNumber][indexAnswers[x]].equals(name)) {
                     System.out.println("Correct: " + TEXT_GREEN + activeMassive[wordNumber][indexAnswers[x]] + TEXT_RESET + "  =  " + TEXT_GREEN + name + TEXT_RESET);
                 } else if (name.equals("0")) {
