@@ -23,6 +23,7 @@ public class Menus {
         if (userAnswer.equals("1")) {
             askNewOrExist();
         } else if (userAnswer.equals("2")) {
+            Files.userName = null;
             learningType();
         } else if (askLearningType.equals("e") || askLearningType.equals("E")) {
             Run.exit();
@@ -40,7 +41,7 @@ public class Menus {
         if (userAnswer.equals("1")) {
             Files.newFFile();
         } else if (userAnswer.equals("2")) {
-            userMenu();
+            checkExistingUser();
         } else if (askLearningType.equals("0")) {
             askAboutRegistration();
         } else if (askLearningType.equals("e") || askLearningType.equals("E")) {
@@ -50,34 +51,59 @@ public class Menus {
         }
     }
 
-    public static void userMenu() {
+    public static void checkExistingUser() {
         System.out.println("\nEnter name of existing user");
         Scanner sc = new Scanner(System.in);
-        String userName = sc.next();
+        String enterUserName = sc.next();
         sc.nextLine();
-        if (Files.userIsExist(userName)) {
-            Files.newFFile();
+        if (Files.userIsExist(enterUserName)) {
+            Files.userName = enterUserName;
+            userMenu();
         } else {
-            System.out.println("There is no user with such name would you like to create new (1), or try to choose another? (2)");
+            System.out.println("There is no user with such name ");
+            System.out.println("\n\t[CREATE NEW (1)]\t\t[CHOOSE ANOTHER (2)]\t\t\t\t\t\t\t\t[RETURN (0)]\t[EXIT (E)]");
             String newOne = sc.next();
             sc.nextLine();
             if (newOne.equals("1")) {
                 Files.newFFile();
-            } else if (askLearningType.equals("2")) {
-                userMenu();
-            } else if (askLearningType.equals("0")) {
+            } else if (newOne.equals("2")) {
+                checkExistingUser();
+            } else if (newOne.equals("0")) {
                 askNewOrExist();
-            } else if (askLearningType.equals("e") || askLearningType.equals("E")) {
+            } else if (newOne.equals("e") || askLearningType.equals("E")) {
                 Run.exit();
             } else {
                 System.out.println("Looks like you entered the wrong characters. Let`s try again... ");
             }
-
         }
     }
-    public static void anotherNew () {
+
+
+    public static void userMenu() {
+
+        System.out.println("Hello " + Files.userName);
+        System.out.println("\n\t[Start lessons (1)]\t\t[Check statistics (2)]\t\t[Choose another name (3)]\t\t[RETURN (0)]\t[EXIT (E)]");
+        String choose = sc.next();
+        sc.nextLine();
+        if (choose.equals("1")) {
+            learningType();
+        } else if (choose.equals("2")) {
+            Files.readFile(Files.userName);
+            userMenu();
+        } else if (choose.equals("0")) {
+            askNewOrExist();
+        } else if (choose.equals("e") || choose.equals("E")) {
+            Run.exit();
+        } else {
+            System.out.println("Looks like you entered the wrong characters. Let`s try again... ");
+        }
+
+    }
+
+    public static void anotherNew() {
+        Files.userName = null;
         System.out.println("This name already exist");
-        System.out.println("\n\t[TRY ANOTHER ONE (1)]\t\t[START WITHOUT NAME (2)]\t\t\t\t\t\t[RETURN (0)]\t[EXIT (E)]");String nextStep = sc.next();
+        System.out.println("\n\t[TRY ANOTHER ONE (1)]\t\t[START WITHOUT NAME (2)]\t\t\t\t\t\t[RETURN (0)]\t[EXIT (E)]");
         String ns = sc.next();
         sc.nextLine();
         if (ns.equals("1")) {
@@ -85,15 +111,16 @@ public class Menus {
         } else if (ns.equals("2")) {
             learningType();
         } else if (ns.equals("0")) {
-            Menus.examType();
-        } else if (ns.equals("e") || nextStep.equals("E")) {
+            askNewOrExist();
+        } else if (ns.equals("e") || ns.equals("E")) {
             Run.exit();
         } else {
             System.out.println("Looks like you entered the wrong characters. Let`s try again... ");
         }
     }
-    public static void anotherOld ()
-    {}
+
+    public static void anotherOld() {
+    }
 
     public static void learningType() {
         //выбор вида обучения

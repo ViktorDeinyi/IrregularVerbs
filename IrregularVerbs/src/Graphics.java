@@ -55,7 +55,7 @@ public class Graphics {
         }
 
         System.out.println("\t\t"+luc + hsVar1 + ruc + "     " + luc + hsVar2 + ruc);
-        System.out.println("\t\t"+vs + " " + var1 + " " + vs + "     " + vs + " " + var2 + " " + vs+ "\t\t\t\t\t\t\t\t\t\t\t" + "[RETURN (0)]" + "\t" + "[EXIT (E)]");
+        System.out.println("\t\t"+vs + " " + var1 + " " + vs + "     " + vs + " " + var2 + " " + vs+ "\t\t\t\t\t\t\t\t\t\t\t\t\t" + "[RETURN (0)]" + "\t" + "[EXIT (E)]");
         System.out.println("\t\t"+ldc + hsVar1 + rdc + "     " + ldc + hsVar2 + rdc);
     }
 
