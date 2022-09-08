@@ -142,7 +142,7 @@ public class Run {
         if (nextStep.equals("1")) {
             lessonRun(activeMassive);
         } else if (nextStep.equals("2")) {
-            examRunL(3, 0, 1, 2, activeMassive, amountOfVerbs);
+            examRunL(3, 0, 1, 2, activeMassive, amountOfWerbs);
         } else if (nextStep.equals("0")) {
             Menus.learningType();
         } else if (nextStep.equals("e") || nextStep.equals("E")) {
