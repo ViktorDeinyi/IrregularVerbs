@@ -9,6 +9,7 @@ public class Menus {
     public static boolean complexity;
     public static String[][] active;
 
+    public static String chosenExamType;
 
     public static int cases = 0;
     static public Scanner sc = new Scanner(System.in);
@@ -190,20 +191,24 @@ public class Menus {
         askExamType = sc.next();
         sc.nextLine();
         if (askExamType.equals("1")) {
-            System.out.println("Translate " + Run.V1 + " \u2192 " + Run.UKR);
+            chosenExamType = "Translate " + Run.V1 + " \u2192 " + Run.UKR;
+            System.out.println(chosenExamType);
             Run.checkNewTest = true;
             Run.examRun(0, 3, -1, -1, active);
         } else if (askExamType.equals("2")) {
-            System.out.println("Translate " + Run.UKR + " \u2192 " + Run.V1);
+            chosenExamType = "Translate " + Run.UKR + " \u2192 " + Run.V1;
+            System.out.println(chosenExamType);
             Run.checkNewTest = true;
             Run.examRun(3, 0, -1, -1, active);
         } else if (askExamType.equals("3")) {
-            System.out.println("Translate " + Run.V1 + " \u2192 " + Run.V2 + " & " + Run.V3);
+            chosenExamType = "Translate " + Run.V1 + " \u2192 " + Run.V2 + " & " + Run.V3;
+            System.out.println(chosenExamType);
             System.out.println(Run.TEXT_RED + "Some words in v2() & v3() have two meanings, please enter them using a spase " + Run.TEXT_RESET);
             Run.checkNewTest = true;
             Run.examRun(0, 1, 2, -1, active);
         } else if (askExamType.equals("4")) {
-            System.out.println("Translate " + Run.UKR + " \u2192 " + Run.V1 + " & " + Run.V2 + " & " + Run.V3);
+            chosenExamType = "Translate " + Run.UKR + " \u2192 " + Run.V1 + " & " + Run.V2 + " & " + Run.V3;
+            System.out.println(chosenExamType);
             System.out.println(Run.TEXT_RED + "Some words in v2() & v3() have two meanings, please enter them using a spase " + Run.TEXT_RESET);
             Run.checkNewTest = true;
             Run.examRun(3, 0, 1, 2, active);

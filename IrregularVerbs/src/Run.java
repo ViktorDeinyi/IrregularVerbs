@@ -1,3 +1,4 @@
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.*;
 
@@ -283,9 +284,10 @@ public class Run {
         }
 
         //writing selected statistics to a file
-        if (!(Files.userName.equals("NoStatistics")))
-        Files.writeToFile(Files.userName, "\nStart time :" + startTime.toString() + "\tFinish time:" + finishTime.toString() + ".  Errors = " + error + ". Persent of wright answers = " + result + " %.\n");
-
+        LocalDateTime dt = LocalDateTime.now();
+        if ((!(Files.userName.equals("NoStatistics")))&&checkNewTest)
+//        Files.writeToFile(Files.userName, "\nStart time :" + startTime.toString() + "\tFinish time:" + finishTime.toString() + ".  Errors = " + error + ". Persent of wright answers = " + result + " %.\n");
+        Files.writeToFile(Files.userName,  dt + " " + Menus.chosenExamType + " " + TimeCounter.timeChange + ".  Errors = " + correctAnswersExam + "/" + index * amountOfAnswers + ". Persent of wright answers = " + result + " %.\n");
         //end of exam transition options
         if (error == 0)
             System.out.println("\n\t[TRY AGAIN (1)]\t\t[TRY SAME (2)]\t\t\t\t\t\t\t\t\t\t\t\t\t\t[RETURN (0)]\t[EXIT (E)]");
