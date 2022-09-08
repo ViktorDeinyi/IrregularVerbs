@@ -23,8 +23,6 @@ public class TimeCounter {
         int checkSTime = checkSeconds % 60;
         if (checkSTime == 1 || checkSTime == 21 || checkSTime == 31 || checkSTime == 41 || checkSTime == 51)
             secondsIs = "second";
-        else if (checkSTime == 2 || checkSTime == 22 || checkSTime == 32 || checkSTime == 42 || checkSTime == 52 || checkSTime == 3 || checkSTime == 23 || checkSTime == 33 || checkSTime == 43 || checkSTime == 53 || checkSTime == 4 || checkSTime == 24 || checkSTime == 34 || checkSTime == 44 || checkSTime == 54)
-            secondsIs = "seconds";
         else secondsIs = "seconds";
     }
 
@@ -33,28 +31,26 @@ public class TimeCounter {
         int checkMTime = checkMinutes / 60;
         if (checkMTime == 1 || checkMTime == 21 || checkMTime == 31 || checkMTime == 41 || checkMTime == 51)
             minutesIs = "minute";
-        else if (checkMTime == 2 || checkMTime == 22 || checkMTime == 32 || checkMTime == 42 || checkMTime == 52 || checkMTime == 3 || checkMTime == 23 || checkMTime == 33 || checkMTime == 43 || checkMTime == 53 || checkMTime == 4 || checkMTime == 24 || checkMTime == 34 || checkMTime == 44 || checkMTime == 54)
-            minutesIs = "minutes";
         else minutesIs = "minutes";
     }
 
     public static void secondsNameRu(int checkSeconds) {
-        //correct display of seconds name RU
+        //correct display of seconds name UA
         int checkSTime = checkSeconds % 60;
         if (checkSTime == 1 || checkSTime == 21 || checkSTime == 31 || checkSTime == 41 || checkSTime == 51)
-            secondsIs = "second";
+            secondsIs = "секунда";
         else if (checkSTime == 2 || checkSTime == 22 || checkSTime == 32 || checkSTime == 42 || checkSTime == 52 || checkSTime == 3 || checkSTime == 23 || checkSTime == 33 || checkSTime == 43 || checkSTime == 53 || checkSTime == 4 || checkSTime == 24 || checkSTime == 34 || checkSTime == 44 || checkSTime == 54)
-            secondsIs = "seconds";
-        else secondsIs = "seconds";
+            secondsIs = "секунди";
+        else secondsIs = "секунд";
     }
 
     public static void minutesNameRu(int checkMinutes) {
-        //correct display of minutes name RU
+        //correct display of minutes name UA
         int checkMTime = checkMinutes / 60;
         if (checkMTime == 1 || checkMTime == 21 || checkMTime == 31 || checkMTime == 41 || checkMTime == 51)
-            minutesIs = "minute";
+            minutesIs = "хвилина";
         else if (checkMTime == 2 || checkMTime == 22 || checkMTime == 32 || checkMTime == 42 || checkMTime == 52 || checkMTime == 3 || checkMTime == 23 || checkMTime == 33 || checkMTime == 43 || checkMTime == 53 || checkMTime == 4 || checkMTime == 24 || checkMTime == 34 || checkMTime == 44 || checkMTime == 54)
-            minutesIs = "minutes";
-        else minutesIs = "minutes";
+            minutesIs = "хвилини";
+        else minutesIs = "хвилин";
     }
 }
