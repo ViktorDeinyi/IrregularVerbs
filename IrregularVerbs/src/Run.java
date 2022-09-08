@@ -121,7 +121,7 @@ public class Run {
                         System.out.println("\n\n\n");
                         Menus.learningType();
                     } else if (name.equals("e")) {
-                        IrregularVerbs.Run.exit();
+                        Run.exit();
                     } else {
                         System.out.println(TEXT_RED + "Mistake: " + TEXT_RESET + TEXT_GREEN + activeMassive[wordNumber][indexAnswers[x]] + TEXT_RESET + "  " + '\u2260' + "  " + TEXT_RED + name + TEXT_RESET);
                         ++error;
@@ -276,7 +276,7 @@ public class Run {
         }
 
         //writing selected statistics to a file
-        IrregularVerbs.NewFile.writeToFile(IrregularVerbs.NewFile.userName, "\nStart time :" + startTime.toString() + "\tFinish time:" + finishTime.toString() + ".  Errors = " + error + ". Persent of wright answers = " + result + " %.\n");
+        NewFile.writeToFile(NewFile.userName, "\nStart time :" + startTime.toString() + "\tFinish time:" + finishTime.toString() + ".  Errors = " + error + ". Persent of wright answers = " + result + " %.\n");
 
         //end of exam transition options
         if (error == 0)
@@ -335,30 +335,3 @@ public class Run {
         System.exit(0);
     }
 }
-    if (error == 0)
-        System.out.println("\n\t[TRY AGAIN (1)]\t\t[TRY SAME (2)]\t\t\t\t\t\t\t\t\t\t\t\t[RETURN (0)]\t[EXIT (E)]");
-    else
-        System.out.println("\t[TRY AGAIN (1)]\t\t[TRY SAME (2)]\t\t[WORK ON ERROR (3)]\t\t\t\t\t\t\t[RETURN (0)]\t[EXIT (E)]");
-        String nextStep = sc.next();
-    if (nextStep.equals("1")) {
-        checkNewTest = true;
-        Run.examRun(indexQuestion, indexAnswer1, indexAnswer2, indexAnswer3, IrregularVerbs.Menus.active);
-    } else if (nextStep.equals("2")) {
-        checkNewTest = false;
-        IrregularVerbs.Menus.cases = correct.length - 1;
-        System.out.println(IrregularVerbs.Menus.cases);
-        Run.examRun(indexQuestion, indexAnswer1, indexAnswer2, indexAnswer3, correct);
-    } else if (nextStep.equals("3")) {
-        System.out.println(TEXT_GREEN + "Let's go working with your mistakes: " + TEXT_RESET + "\n");
-        checkNewTest = false;
-        IrregularVerbs.Menus.cases = mistakes.length - 1;
-        System.out.println(IrregularVerbs.Menus.cases);
-        Run.examRun(indexQuestion, indexAnswer1, indexAnswer2, indexAnswer3, mistakes);
-    } else if (nextStep.equals("0")) {
-            IrregularVerbs.Menus.examType();
-    } else if (nextStep.equals("e") || nextStep.equals("E")) {
-            IrregularVerbs.Run.exit();
-    } else {
-            System.out.println("Looks like you entered the wrong characters. Let`s try again... ");
-            }
-        

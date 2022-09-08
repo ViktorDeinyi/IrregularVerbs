@@ -1,16 +1,13 @@
 
-
 import java.io.*;
 import java.util.Scanner;
 
 public class NewFile {
     public static void newFile() throws IOException {
-        // создание нового файла Влада кусок
+        // create new file (user) [Vlad]
         System.out.println("Write file name:");
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         OutputStream outputStream = new FileOutputStream(reader.readLine());
-
-
         while (true) {
             System.out.println("Write your name:");
             String data = reader.readLine();
@@ -22,14 +19,14 @@ public class NewFile {
             }
         }
         outputStream.close();
-////        reader.close();
+        reader.close();
     }
 
     public static String userName;
     public static void newFFile () {
-        // создание нового файла
+        // create new file (user) [Victor]
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter file name");
+        System.out.println("Enter your name");
         String name = sc.next();
         userName = name;
         sc.nextLine();
@@ -38,7 +35,7 @@ public class NewFile {
             if (newOne.createNewFile()) {
                 System.out.println("Ready " + newOne.getName());
             } else  {
-                System.out.println("Already exist ");
+                System.out.println("This name already exist, new one ");
             }
         } catch (IOException e) {
             System.out.println("Error ");

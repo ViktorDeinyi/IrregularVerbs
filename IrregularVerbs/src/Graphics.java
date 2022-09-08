@@ -1,7 +1,13 @@
 public class Graphics {
 
     public static final String TEXT_RESET = "\u001B[0m";
+    public static final String TEXT_GREEN = "\u001B[32m";
+    public static final String TEXT_RED = "\u001B[31m";
+    public static final String TEXT_YELLOW = "\u001B[33m";
     public static final String TEXT_PURPLE = "\u001B[35m";
+    public static final String BLACK_BOLD = "\033[1;30m";
+    public static final String redHeart = TEXT_RED + "\u2665" + Run.TEXT_RESET;
+    public static final String blackHeart = BLACK_BOLD + "\u2665" + Run.TEXT_RESET;
 
     public static void title() {
 
