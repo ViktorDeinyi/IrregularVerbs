@@ -36,7 +36,7 @@ public class Run {
             amountOfVerbs = sc.nextByte();
             sc.nextLine();
         } catch (InputMismatchException exe) {
-            System.out.println("Sorry, looks like you've typed incorrect symbol... \nLet's try again :)");
+            System.out.println(Graphics.TEXT_YELLOW+"Sorry, looks like you've typed incorrect symbol... \nLet's try again :)"+Graphics.TEXT_RESET);
             sc.nextLine();
             lessonRun(activeMassive);
         }
@@ -63,7 +63,7 @@ public class Run {
         } else if (amountOfVerbs == 0) {
             Menus.learningType();
         } else {
-            System.out.println("Sorry, we don't have enough cases for this lesson. Please choose the number between 1-5 to start learning.");
+            System.out.println(Graphics.TEXT_YELLOW+"Sorry, we don't have enough cases for this lesson. Please choose the number between 1-5 to start learning."+Graphics.TEXT_RESET);
             lessonRun(activeMassive);
         }
         System.out.println(amountOfVerbs);
@@ -200,7 +200,7 @@ public class Run {
                     name = name.toLowerCase();
                     // Check that the line is empty
                     if (name.isEmpty())
-                        System.err.println("The line is empty. You should enter the answer! Try again!");
+                        System.out.println(Graphics.TEXT_YELLOW+"The line is empty. You should enter the answer! Try again!"+Graphics.TEXT_RESET);
                 } while (name.isEmpty());
                 if (activeMassive[wordNumber][indexAnswers[x]].equals(name)) {
                     System.out.println("Correct: " +
@@ -290,9 +290,9 @@ public class Run {
 
         //writing selected statistics to a file
         LocalDateTime dt = LocalDateTime.now();
-        if ((!(Files.userName.equals("NoStatistics")))&&checkNewTest)
+        if ((!(Files.userNameOriginal.equals("NoStatistics")))&&checkNewTest)
 //        Files.writeToFile(Files.userName, "\nStart time :" + startTime.toString() + "\tFinish time:" + finishTime.toString() + ".  Errors = " + error + ". Persent of wright answers = " + result + " %.\n");
-        Files.writeToFile(Files.userName,  dt + " " + Menus.chosenExamType + " " + TimeCounter.timeChange + ".  Errors = " + correctAnswersExam + "/" + index * amountOfAnswers + ". Persent of wright answers = " + result + " %.\n");
+        Files.writeToFile(Files.userNameOriginal,  dt + " " + Menus.chosenExamType + " " + TimeCounter.timeChange + ".  Errors = " + correctAnswersExam + "/" + index * amountOfAnswers + ". Persent of wright answers = " + result + " %.\n");
         //end of exam transition options
         if (error == 0)
             System.out.println("\n\t[TRY AGAIN (1)]\t\t[TRY SAME (2)]\t\t\t\t\t\t\t\t\t\t\t\t\t\t[RETURN (0)]\t[EXIT (E)]");

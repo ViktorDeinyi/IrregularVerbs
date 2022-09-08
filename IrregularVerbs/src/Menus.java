@@ -179,7 +179,7 @@ public class Menus {
         } else if (askLevelOfDifficult.equals("e") || askLevelOfDifficult.equals("E")) {
             Run.exit();
         } else {
-            System.out.println("Looks like you entered the wrong characters. Let`s try again... ");
+            System.out.println(Graphics.TEXT_YELLOW+"Looks like you entered the wrong characters. Let`s try again... "+ Graphics.TEXT_RESET);
             Menus.learningType();
         }
 
@@ -218,7 +218,7 @@ public class Menus {
             learningType();
         } else if (askExamType.equals("e") || askExamType.equals("E")) {
             Run.exit();
-        } else System.out.println("Looks like you entered the wrong characters. Let`s try again... ");
+        } else System.out.println(Graphics.TEXT_YELLOW+"Looks like you entered the wrong characters. Let`s try again... "+Graphics.TEXT_YELLOW);
         Menus.examType();
     }
 
