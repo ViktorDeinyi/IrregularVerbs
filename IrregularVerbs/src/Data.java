@@ -72,7 +72,7 @@ public class Data {
             {"forgive", "forgave", "forgiven", "пробачати"},
             {"freeze", "froze", "frozen", "заморожувати"},
             {"clothe", "clad clothed", "clad clothed", "одягати"},
-            {"dive", "dived", "dived, dove", "пірнати"},
+            {"dive", "dived", "dived  dove", "пірнати"},
             {"hit", "hit", "hit", "влучати"},
             {"hold", "held", "held", "тримати"},
             {"know", "knew", "known", "знати"},

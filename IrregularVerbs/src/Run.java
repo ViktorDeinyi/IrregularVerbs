@@ -200,8 +200,7 @@ public class Run {
                     name = name.toLowerCase();
                     // Check that the line is empty
                     if (name.isEmpty())
-                        System.out.println(Graphics.TEXT_YELLOW +
-                                "The line is empty. You should enter the answer! Try again!" + Graphics.TEXT_RESET);
+                        System.err.println("The line is empty. You should enter the answer! Try again!");
                 } while (name.isEmpty());
                 if (activeMassive[wordNumber][indexAnswers[x]].equals(name)) {
                     System.out.println("Correct: " +
@@ -359,8 +358,7 @@ public class Run {
                 name = name.toLowerCase();
                 // Check that the line is empty
                 if (name.isEmpty())
-                    System.out.println(Graphics.TEXT_YELLOW +
-                            "The line is empty. You should enter the answer! Try again!" + Graphics.TEXT_RESET);
+                    System.err.println("The line is empty. You should enter the answer! Try again!");
             }while (name.isEmpty());
             if (activeMassive[wordNumber][indexAnswer1].equals(name)) {
                 System.out.println("Correct: " + TEXT_GREEN + activeMassive[wordNumber][indexAnswer1] + TEXT_RESET + "  =  " + TEXT_GREEN + name + TEXT_RESET);

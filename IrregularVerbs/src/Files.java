@@ -3,7 +3,7 @@ import java.io.*;
 import java.util.Scanner;
 
 public class Files {
-    public static String userName;
+    public static String userNameOriginal;
     public static void newFile() throws IOException {
         // create new file (user) [Vlad]
         System.out.println("Write file name:");
@@ -27,7 +27,7 @@ public class Files {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter name of new user");
         String name = sc.next();
-        userName = name;
+        userNameOriginal = name;
         sc.nextLine();
         try {
             File newOne = new File(name);
