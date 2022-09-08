@@ -25,7 +25,7 @@ public class Files {
     public static void newFFile () {
         // create new file (user) [Victor]
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter your name");
+        System.out.println("Enter name of new user");
         String name = sc.next();
         userName = name;
         sc.nextLine();

@@ -283,11 +283,12 @@ public class Run {
         }
 
         //writing selected statistics to a file
+        if (!(Files.userName.equals("NoStatistics")))
         Files.writeToFile(Files.userName, "\nStart time :" + startTime.toString() + "\tFinish time:" + finishTime.toString() + ".  Errors = " + error + ". Persent of wright answers = " + result + " %.\n");
 
         //end of exam transition options
         if (error == 0)
-            System.out.println("\n\t[TRY AGAIN (1)]\t\t[TRY SAME (2)]\t\t\t\t\t\t\t\t\t\t\t\t[RETURN (0)]\t[EXIT (E)]");
+            System.out.println("\n\t[TRY AGAIN (1)]\t\t[TRY SAME (2)]\t\t\t\t\t\t\t\t\t\t\t\t\t\t[RETURN (0)]\t[EXIT (E)]");
         else
             System.out.println("\t[TRY AGAIN (1)]\t\t[TRY SAME (2)]\t\t[WORK ON ERROR (3)]\t\t\t\t\t\t\t[RETURN (0)]\t[EXIT (E)]");
         String nextStep = sc.next();

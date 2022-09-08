@@ -26,7 +26,7 @@ public class Graphics {
         System.out.print("  STUDY SOME IRREGULAR VERBS  ");
         System.out.println(l15);
         System.out.println(l15 + l15 + l15 + l15 + TEXT_RESET + "\n\n");
-        System.out.println("\t\t\t\t\t\tHello!\n\tLet's start learning irregular verbs together!");
+        System.out.println("\t\t\t\t\t\t\tHello!\n\t\tLet's start learning irregular verbs together!");
     }
 
     //My new method for draw two words with frame
@@ -40,9 +40,9 @@ public class Graphics {
             hsVar2 +=hs;
         }
 
-        System.out.println("\t\t"+luc + hsVar1 + ruc + "     " + luc + hsVar2 + ruc);
-        System.out.println("\t\t"+vs + " " + var1 + " " + vs + "     " + vs + " " + var2 + " " + vs+ "\t\t\t\t\t\t\t\t\t\t\t\t\t\t" + "[EXIT (E)]");
-        System.out.println("\t\t"+ldc + hsVar1 + rdc + "     " + ldc + hsVar2 + rdc);
+        System.out.println("\t\t\t"+luc + hsVar1 + ruc + "     " + luc + hsVar2 + ruc);
+        System.out.println("\t\t\t"+vs + " " + var1 + " " + vs + "     " + vs + " " + var2 + " " + vs+ "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t" + "[EXIT (E)]");
+        System.out.println("\t\t\t"+ldc + hsVar1 + rdc + "     " + ldc + hsVar2 + rdc);
     }
     public static void frameNewOld(String var1, String var2) {
         String hsVar1 = "";
@@ -54,9 +54,9 @@ public class Graphics {
             hsVar2 +=hs;
         }
 
-        System.out.println("\t\t"+luc + hsVar1 + ruc + "     " + luc + hsVar2 + ruc);
-        System.out.println("\t\t"+vs + " " + var1 + " " + vs + "     " + vs + " " + var2 + " " + vs+ "\t\t\t\t\t\t\t\t\t\t\t\t\t" + "[RETURN (0)]" + "\t" + "[EXIT (E)]");
-        System.out.println("\t\t"+ldc + hsVar1 + rdc + "     " + ldc + hsVar2 + rdc);
+        System.out.println("\t\t\t"+luc + hsVar1 + ruc + "     " + luc + hsVar2 + ruc);
+        System.out.println("\t\t\t"+vs + " " + var1 + " " + vs + "     " + vs + " " + var2 + " " + vs+ "\t\t\t\t\t\t\t\t\t\t\t" + "[RETURN (0)]" + "\t" + "[EXIT (E)]");
+        System.out.println("\t\t\t"+ldc + hsVar1 + rdc + "     " + ldc + hsVar2 + rdc);
     }
 
     public static void frameLearningType(String var1, String var2, String var3) {

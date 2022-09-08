@@ -23,7 +23,7 @@ public class Menus {
         if (userAnswer.equals("1")) {
             askNewOrExist();
         } else if (userAnswer.equals("2")) {
-            Files.userName = null;
+            Files.userName = "NoStatistics";
             learningType();
         } else if (askLearningType.equals("e") || askLearningType.equals("E")) {
             Run.exit();
@@ -34,7 +34,7 @@ public class Menus {
 
     public static void askNewOrExist() {
         System.out.println("\nYou can enter a new one or use name from previous sessions");
-        Graphics.frameNewOld("1.NEW", "2.OLD");
+        Graphics.frameNewOld("1.NEW NAME ", "2.EXISTING");
         Scanner sc = new Scanner(System.in);
         String userAnswer = sc.next();
         sc.nextLine();
@@ -58,10 +58,11 @@ public class Menus {
         sc.nextLine();
         if (Files.userIsExist(enterUserName)) {
             Files.userName = enterUserName;
+            System.out.println("\n\tHello " + Files.userName);
             userMenu();
         } else {
             System.out.println("There is no user with such name ");
-            System.out.println("\n\t[CREATE NEW (1)]\t\t[CHOOSE ANOTHER (2)]\t\t\t\t\t\t\t\t[RETURN (0)]\t[EXIT (E)]");
+            System.out.println("\n\t[CREATE NEW (1)]\t\t[CHOOSE ANOTHER (2)]\t\t\t\t\t\t\t\t\t\t[RETURN (0)]\t[EXIT (E)]");
             String newOne = sc.next();
             sc.nextLine();
             if (newOne.equals("1")) {
@@ -80,9 +81,8 @@ public class Menus {
 
 
     public static void userMenu() {
-
-        System.out.println("Hello " + Files.userName);
-        System.out.println("\n\t[Start lessons (1)]\t\t[Check statistics (2)]\t\t[Choose another name (3)]\t\t[RETURN (0)]\t[EXIT (E)]");
+        System.out.println("\t\nWhat would you like to do?");
+        System.out.println("\n\t[Start lessons (1)]\t\t[Check statistics (2)]\t\t[Choose new name (3)]\t\t\t[RETURN (0)]\t[EXIT (E)]");
         String choose = sc.next();
         sc.nextLine();
         if (choose.equals("1")) {
@@ -101,14 +101,15 @@ public class Menus {
     }
 
     public static void anotherNew() {
-        Files.userName = null;
+        Files.userName = "NoStatistics";
         System.out.println("This name already exist");
-        System.out.println("\n\t[TRY ANOTHER ONE (1)]\t\t[START WITHOUT NAME (2)]\t\t\t\t\t\t[RETURN (0)]\t[EXIT (E)]");
+        System.out.println("\n\t[TRY ANOTHER (1)]\t\t[START WITHOUT NAME (2)]\t\t\t\t\t\t\t\t\t[RETURN (0)]\t[EXIT (E)]");
         String ns = sc.next();
         sc.nextLine();
         if (ns.equals("1")) {
             Files.newFFile();
         } else if (ns.equals("2")) {
+            Files.userName = "NoStatistics";
             learningType();
         } else if (ns.equals("0")) {
             askNewOrExist();
@@ -125,7 +126,7 @@ public class Menus {
     public static void learningType() {
         //выбор вида обучения
         System.out.println("\t\t\tSelect the type of learning ");
-        Graphics.frameLearningType("1.LESSON  ", "2.EXAM   ", "3.SUPER QUIZ");
+        Graphics.frameLearningType("1.LESSON    ", "2.EXAM      ", "3.SUPER QUIZ");
         askLearningType = sc.next();
         if (askLearningType.equals("1")) {
             complexity = false;
