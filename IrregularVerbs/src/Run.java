@@ -307,6 +307,91 @@ public class Run {
         }
     }
 
+    public static void superQuizRun(String[][] activeMassive) {
+        Scanner sc = new Scanner(System.in);
+        question = UKR;
+        LocalTime startTime = LocalTime.now();
+        byte error = 3;
+        boolean check = true;
+        int index = 0;
+        String life1 = Graphics.redHeart;
+        String life2 = Graphics.redHeart;
+
+
+
+        do {
+//            System.out.println("Кол-во примеров -1: " + (Data.getWords1().length - 1));
+            int wordNumber = randomNumber(activeMassive.length - 1);
+            int indexAnswer1 = randomNumber(3) - 1;
+//            System.out.println(indexAnswer1);
+            switch (indexAnswer1) {
+                case 0:
+                    answer1 = V1;
+                    break;
+                case 1:
+                    answer1 = V2;
+                    break;
+                case 2:
+                    answer1 = V3;
+                    break;
+            }
+
+            System.out.println("\n");
+            System.out.print(++index + ". " + life1 + " " + life2 + " " + Graphics.redHeart + " " + question + "  " + activeMassive[wordNumber][3]);
+            System.out.print("  =  " + answer1 + "  ");
+            String name = sc.nextLine();
+            name = name.toLowerCase();
+            if (activeMassive[wordNumber][indexAnswer1].equals(name)) {
+                System.out.println("Correct: " + TEXT_GREEN + activeMassive[wordNumber][indexAnswer1] + TEXT_RESET + "  =  " + TEXT_GREEN + name + TEXT_RESET);
+            } else {
+                System.out.println(TEXT_RED + "Mistake: " + TEXT_RESET + TEXT_GREEN + activeMassive[wordNumber][indexAnswer1] + TEXT_RESET + "  " + '\u2260' + "  " + TEXT_RED + name + TEXT_RESET);
+                if (error == 3) {
+                    life1 = Graphics.blackHeart;
+                    System.out.println("Oups you just answer wrong ");}
+                else if (error == 2) {
+                    life2 = Graphics.blackHeart;
+                    System.out.println("Be careful, you have only one mistake left ");}
+                error--;
+            }
+        }
+        while (error>0);
+        index--;
+        LocalTime finishTime = LocalTime.now();
+        System.out.println("\nYour test results: ");
+        System.out.println("Test start time = " + startTime);
+        System.out.println("Test end time = " + finishTime + "\n");
+
+
+        int fh = finishTime.getHour();
+        int sh = startTime.getHour();
+        int fm = finishTime.getMinute();
+        int sm = startTime.getMinute();
+        int fs = finishTime.getSecond();
+        int ss = startTime.getSecond();
+        TimeCounter.timeChange(fh, fm, fs, sh, sm, ss);
+
+        System.out.println(index);
+
+        if (index >= 100) {
+            System.out.println("Correct answers: " + TEXT_GREEN + index + TEXT_RESET);
+        } else if (index >= 50) {
+            System.out.println("Correct answers: " + TEXT_YELLOW + index + TEXT_RESET);
+        } else if (index >= 0) {
+            System.out.println("Correct answers: " + TEXT_RED + index + TEXT_RESET + "\n\n");
+        }
+        System.out.println("\t[TRY AGAIN (1)]\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[RETURN (0)]\t[EXIT (E)]");
+        String nextStep = sc.next();
+        if (nextStep.equals("1")) {
+            superQuizRun(activeMassive);
+        } else if (nextStep.equals("0")) {
+            Menus.learningType();
+        } else if (nextStep.equals("e") || nextStep.equals("E")) {
+            Run.exit();
+        } else {
+            System.out.println("Looks like you entered the wrong characters. Let`s try again... ");
+        }
+
+    }
     public static int randomNumber(int Number) {
         boolean check = true;
         int resultRandom = 0;
