@@ -1,4 +1,3 @@
-import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -15,10 +14,91 @@ public class Menus {
     static public Scanner sc = new Scanner(System.in);
 
 
-    public static void learningType()  {
+    public static void askAboutRegistration() {
+        System.out.println("\nWould you like to use program with the name or incognito?");
+        Graphics.frameRegistration("1.WITH NAME", "2.PRIVATE ");
+        Scanner sc = new Scanner(System.in);
+        String userAnswer = sc.next();
+        sc.nextLine();
+        if (userAnswer.equals("1")) {
+            askNewOrExist();
+        } else if (userAnswer.equals("2")) {
+            learningType();
+        } else if (askLearningType.equals("e") || askLearningType.equals("E")) {
+            Run.exit();
+        } else {
+            System.out.println("Looks like you entered the wrong characters. Let`s try again... ");
+        }
+    }
+
+    public static void askNewOrExist() {
+        System.out.println("\nYou can enter a new one or use name from previous sessions");
+        Graphics.frameNewOld("1.NEW", "2.OLD");
+        Scanner sc = new Scanner(System.in);
+        String userAnswer = sc.next();
+        sc.nextLine();
+        if (userAnswer.equals("1")) {
+            Files.newFFile();
+        } else if (userAnswer.equals("2")) {
+            userMenu();
+        } else if (askLearningType.equals("0")) {
+            askAboutRegistration();
+        } else if (askLearningType.equals("e") || askLearningType.equals("E")) {
+            Run.exit();
+        } else {
+            System.out.println("Looks like you entered the wrong characters. Let`s try again... ");
+        }
+    }
+
+    public static void userMenu() {
+        System.out.println("\nEnter name of existing user");
+        Scanner sc = new Scanner(System.in);
+        String userName = sc.next();
+        sc.nextLine();
+        if (Files.userIsExist(userName)) {
+            Files.newFFile();
+        } else {
+            System.out.println("There is no user with such name would you like to create new (1), or try to choose another? (2)");
+            String newOne = sc.next();
+            sc.nextLine();
+            if (newOne.equals("1")) {
+                Files.newFFile();
+            } else if (askLearningType.equals("2")) {
+                userMenu();
+            } else if (askLearningType.equals("0")) {
+                askNewOrExist();
+            } else if (askLearningType.equals("e") || askLearningType.equals("E")) {
+                Run.exit();
+            } else {
+                System.out.println("Looks like you entered the wrong characters. Let`s try again... ");
+            }
+
+        }
+    }
+    public static void anotherNew () {
+        System.out.println("This name already exist");
+        System.out.println("\n\t[TRY ANOTHER ONE (1)]\t\t[START WITHOUT NAME (2)]\t\t\t\t\t\t[RETURN (0)]\t[EXIT (E)]");String nextStep = sc.next();
+        String ns = sc.next();
+        sc.nextLine();
+        if (ns.equals("1")) {
+            Files.newFFile();
+        } else if (ns.equals("2")) {
+            learningType();
+        } else if (ns.equals("0")) {
+            Menus.examType();
+        } else if (ns.equals("e") || nextStep.equals("E")) {
+            Run.exit();
+        } else {
+            System.out.println("Looks like you entered the wrong characters. Let`s try again... ");
+        }
+    }
+    public static void anotherOld ()
+    {}
+
+    public static void learningType() {
         //выбор вида обучения
         System.out.println("\t\t\tSelect the type of learning ");
-        Graphics.frameLearningType("1.LESSON    ", "2.EXAM      ", "3.SUPER QUIZ");
+        Graphics.frameLearningType("1.LESSON  ", "2.EXAM   ", "3.SUPER QUIZ");
         askLearningType = sc.next();
         if (askLearningType.equals("1")) {
             complexity = false;
@@ -45,6 +125,7 @@ public class Menus {
         }
 
     }
+
     public static void levelOfDifficult(boolean complexity) {
         //выбор уровня сложности
         System.out.println("\t\t\tSelect the level of difficulty");
@@ -82,21 +163,21 @@ public class Menus {
         sc.nextLine();
         if (askExamType.equals("1")) {
             System.out.println("Translate " + Run.V1 + " \u2192 " + Run.UKR);
-            Run.checkNewTest=true;
+            Run.checkNewTest = true;
             Run.examRun(0, 3, -1, -1, active);
         } else if (askExamType.equals("2")) {
             System.out.println("Translate " + Run.UKR + " \u2192 " + Run.V1);
-            Run.checkNewTest=true;
+            Run.checkNewTest = true;
             Run.examRun(3, 0, -1, -1, active);
         } else if (askExamType.equals("3")) {
             System.out.println("Translate " + Run.V1 + " \u2192 " + Run.V2 + " & " + Run.V3);
             System.out.println(Run.TEXT_RED + "Some words in v2() & v3() have two meanings, please enter them using a spase " + Run.TEXT_RESET);
-            Run.checkNewTest=true;
+            Run.checkNewTest = true;
             Run.examRun(0, 1, 2, -1, active);
         } else if (askExamType.equals("4")) {
             System.out.println("Translate " + Run.UKR + " \u2192 " + Run.V1 + " & " + Run.V2 + " & " + Run.V3);
             System.out.println(Run.TEXT_RED + "Some words in v2() & v3() have two meanings, please enter them using a spase " + Run.TEXT_RESET);
-            Run.checkNewTest=true;
+            Run.checkNewTest = true;
             Run.examRun(3, 0, 1, 2, active);
         } else if (askExamType.equals("0")) {
             learningType();
@@ -144,24 +225,8 @@ public class Menus {
             superQuizInfo();
         }
     }
-    
+
     //my new method about registration
-    public static boolean askAboutRegistration() {
-        System.out.println();
-        while(true) {
-            System.out.println("Would you like to register?  ");
-            Graphics.frameForTwoVariants("1.YES", "2.NO");
-            Scanner sc = new Scanner(System.in);
-            byte userAnswer = sc.nextByte();
-            if (userAnswer == 1) {
-                return true;
-            } else if (userAnswer == 2) {
-                return false;
-            } else {
-                System.out.println("Your answer is not correct. Try again.");
-                System.out.println();
-            }
-        }
-    }
+
 }
 

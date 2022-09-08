@@ -2,7 +2,8 @@
 import java.io.*;
 import java.util.Scanner;
 
-public class NewFile {
+public class Files {
+    public static String userName;
     public static void newFile() throws IOException {
         // create new file (user) [Vlad]
         System.out.println("Write file name:");
@@ -21,8 +22,6 @@ public class NewFile {
         outputStream.close();
         reader.close();
     }
-
-    public static String userName;
     public static void newFFile () {
         // create new file (user) [Victor]
         Scanner sc = new Scanner(System.in);
@@ -33,9 +32,9 @@ public class NewFile {
         try {
             File newOne = new File(name);
             if (newOne.createNewFile()) {
-                System.out.println("Ready " + newOne.getName());
+                System.out.println("Ok " + newOne.getName());
             } else  {
-                System.out.println("This name already exist, new one ");
+                Menus.anotherNew();
             }
         } catch (IOException e) {
             System.out.println("Error ");
@@ -45,7 +44,7 @@ public class NewFile {
     public static void writeToFile (String userName, String w) {
 //запись статистики в файл
         try {
-            FileWriter user = new FileWriter(userName);
+            FileWriter user = new FileWriter(userName, true);
             user.write(w);
             user.close();
             System.out.println("Succesfully write.");
@@ -55,4 +54,23 @@ public class NewFile {
         }
 
     }
+    public static void readFile(String us) {
+        try {
+            File readFile = new File (us);
+            Scanner read = new Scanner(readFile);
+            while (read.hasNextLine()) {
+                String data = read.nextLine();
+                System.out.println(data);
+            }
+            read.close();}
+        catch (FileNotFoundException e) {
+            System.out.println("Error reading");
+            e.printStackTrace();
+        }
+    }
+    public static boolean userIsExist (String us){
+        File f = new File(us);
+        return f.exists();
+    }
 }
+

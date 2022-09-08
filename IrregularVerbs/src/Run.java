@@ -276,7 +276,7 @@ public class Run {
         }
 
         //writing selected statistics to a file
-        NewFile.writeToFile(NewFile.userName, "\nStart time :" + startTime.toString() + "\tFinish time:" + finishTime.toString() + ".  Errors = " + error + ". Persent of wright answers = " + result + " %.\n");
+        Files.writeToFile(Files.userName, "\nStart time :" + startTime.toString() + "\tFinish time:" + finishTime.toString() + ".  Errors = " + error + ". Persent of wright answers = " + result + " %.\n");
 
         //end of exam transition options
         if (error == 0)
