@@ -120,8 +120,7 @@ public class Run {
                     name = sc.nextLine();
                     name = name.toLowerCase();
                     if (name.isEmpty())
-                        System.out.println(Graphics.TEXT_YELLOW +
-                                "The line is empty. You should enter the answer! Try again!" + Graphics.TEXT_RESET);
+                        System.out.println(Graphics.TEXT_YELLOW + "The line is empty. You should enter the answer! Try again!" + Graphics.TEXT_RESET);
                 }while (name.isEmpty());
                 if (activeMassive[wordNumber][indexAnswers[x]].equals(name)) {
                     System.out.println("Correct: " + TEXT_GREEN + activeMassive[wordNumber][indexAnswers[x]] + TEXT_RESET + "  =  " + TEXT_GREEN + name + TEXT_RESET);
