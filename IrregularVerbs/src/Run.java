@@ -83,58 +83,59 @@ public class Run {
             System.out.println("Sorry, looks like you've typed incorrect symbol... \nLet's try again :)");
         }
     }
+
     public static void examRunL(int indexQuestion, int indexAnswer1, int indexAnswer2, int indexAnswer3, String[][] activeMassive, int amountOfWerbs) {
-            //exam after the lesson (no statistics here)
-            int[] indexAnswers = new int[]{indexQuestion, indexAnswer1, indexAnswer2, indexAnswer3};
-            int index = 0;
-            int cases = 10;
-            double error = 0;
-            int[] checkOriginal = new int[cases];
-            Scanner sc = new Scanner(System.in);
-            System.out.println(amountOfWerbs);
-            do {
-                cases--;
-                int wordNumber = randomNumber(checkOriginal.length) + ((amountOfWerbs * 10) - 10);
+        //exam after the lesson (no statistics here)
+        int[] indexAnswers = new int[]{indexQuestion, indexAnswer1, indexAnswer2, indexAnswer3};
+        int index = 0;
+        int cases = 10;
+        double error = 0;
+        int[] checkOriginal = new int[cases];
+        Scanner sc = new Scanner(System.in);
+        System.out.println(amountOfWerbs);
+        do {
+            cases--;
+            int wordNumber = randomNumber(checkOriginal.length) + ((amountOfWerbs * 10) - 10);
 
-                int i = 0;
-                while (i < checkOriginal.length) {
-                    if (checkOriginal[i] == wordNumber) {
-                        wordNumber = randomNumber(checkOriginal.length) + ((amountOfWerbs * 10) - 10);
-                     //  System.out.println("change" + wordNumber);
-                        i = -1;
-                    }
-                    ++i;
+            int i = 0;
+            while (i < checkOriginal.length) {
+                if (checkOriginal[i] == wordNumber) {
+                    wordNumber = randomNumber(checkOriginal.length) + ((amountOfWerbs * 10) - 10);
+                    //  System.out.println("change" + wordNumber);
+                    i = -1;
                 }
-                checkOriginal[index] = wordNumber;
+                ++i;
+            }
+            checkOriginal[index] = wordNumber;
 
-                ++index;
-                System.out.println(Arrays.toString(checkOriginal));
-                System.out.print("\n" + index + "/" + checkOriginal.length + "\t");
-                for (int x = 1; x <= 3; ++x) {
-                    System.out.print(names.get(indexAnswers[0]) + "\t" + activeMassive[wordNumber][indexAnswers[0]]);
-                    System.out.print("  =  " + names.get(indexAnswers[x]) + "  ");
-                    String name = sc.nextLine();
-                    name = name.toLowerCase();
-                    if (activeMassive[wordNumber][indexAnswers[x]].equals(name)) {
-                        System.out.println("Correct: " + TEXT_GREEN + activeMassive[wordNumber][indexAnswers[x]] + TEXT_RESET + "  =  " + TEXT_GREEN + name + TEXT_RESET);
-                    } else if (name.equals("0")) {
-                        System.out.println("\n\n\n");
-                        Menus.learningType();
-                    } else if (name.equals("e")) {
-                        Run.exit();
-                    } else {
-                        System.out.println(TEXT_RED + "Mistake: " + TEXT_RESET + TEXT_GREEN + activeMassive[wordNumber][indexAnswers[x]] + TEXT_RESET + "  " + '\u2260' + "  " + TEXT_RED + name + TEXT_RESET);
-                        ++error;
-                    }
+            ++index;
+            System.out.println(Arrays.toString(checkOriginal));
+            System.out.print("\n" + index + "/" + checkOriginal.length + "\t");
+            for (int x = 1; x <= 3; ++x) {
+                System.out.print(names.get(indexAnswers[0]) + "\t" + activeMassive[wordNumber][indexAnswers[0]]);
+                System.out.print("  =  " + names.get(indexAnswers[x]) + "  ");
+                String name = sc.nextLine();
+                name = name.toLowerCase();
+                if (activeMassive[wordNumber][indexAnswers[x]].equals(name)) {
+                    System.out.println("Correct: " + TEXT_GREEN + activeMassive[wordNumber][indexAnswers[x]] + TEXT_RESET + "  =  " + TEXT_GREEN + name + TEXT_RESET);
+                } else if (name.equals("0")) {
+                    System.out.println("\n\n\n");
+                    Menus.learningType();
+                } else if (name.equals("e")) {
+                    Run.exit();
+                } else {
+                    System.out.println(TEXT_RED + "Mistake: " + TEXT_RESET + TEXT_GREEN + activeMassive[wordNumber][indexAnswers[x]] + TEXT_RESET + "  " + '\u2260' + "  " + TEXT_RED + name + TEXT_RESET);
+                    ++error;
                 }
             }
-            while (cases > 0);
+        }
+        while (cases > 0);
 
-            System.out.println("The array of indices with correct answers:");
-            System.out.println(Arrays.toString(checkOriginal));
-            System.out.println("\n");
+        System.out.println("The array of indices with correct answers:");
+        System.out.println(Arrays.toString(checkOriginal));
+        System.out.println("\n");
 
-            //the end of the exam on lesson, check on the exit options
+        //the end of the exam on lesson, check on the exit options
 
         System.out.println("\n" + "What you would like to do next? :  ");
         System.out.println("\t[Learn another verbs (1)]\t\t[Take a quiz with learned words (2)]\t\t\t\t[RETURN (0)]\t[EXIT (E)]");
@@ -183,12 +184,18 @@ public class Run {
             checkOriginal[index] = wordNumber;
             ++index;
 //            System.out.println(Arrays.toString(checkOriginal));
-            System.out.print("\n" + index + "/" + checkOriginal.length + "\t");
             for (int x = 1; x <= amountOfAnswers; ++x) {
-                System.out.print(names.get(indexAnswers[0]) + "\t" + activeMassive[wordNumber][indexAnswers[0]]);
-                System.out.print("  =  " + names.get(indexAnswers[x]) + "  ");
-                String name = sc.nextLine();
-                name = name.toLowerCase();
+                String name;
+                do {
+                    System.out.print("\n" + index + "/" + checkOriginal.length + "\t");
+                    System.out.print(names.get(indexAnswers[0]) + "\t" + activeMassive[wordNumber][indexAnswers[0]]);
+                    System.out.print("  =  " + names.get(indexAnswers[x]) + "  ");
+                    name = sc.nextLine();
+                    name = name.toLowerCase();
+                    // Check that the line is empty
+                    if (name.isEmpty())
+                        System.err.println("The line is empty. You should enter the answer! Try again!");
+                } while (name.isEmpty());
                 if (activeMassive[wordNumber][indexAnswers[x]].equals(name)) {
                     System.out.println("Correct: " +
                             TEXT_GREEN + activeMassive[wordNumber][indexAnswers[x]] + TEXT_RESET + "  =  " +
@@ -265,8 +272,8 @@ public class Run {
         double result = (((checkOriginal.length) * amountOfAnswers) - error) / (checkOriginal.length * amountOfAnswers) * 100;
 //        double result = ((((double) checkOriginal.length) * amountOfAnswers) - error) / ((double) checkOriginal.length * amountOfAnswers) * 100;
         result = Math.rint(result);
-        byte correctAnswersExam = (byte) (index*amountOfAnswers - error);
-        System.out.println("Number of correct answers: " + correctAnswersExam + "/" + index*amountOfAnswers);
+        byte correctAnswersExam = (byte) (index * amountOfAnswers - error);
+        System.out.println("Number of correct answers: " + correctAnswersExam + "/" + index * amountOfAnswers);
         if (result >= 80) {
             System.out.println("Percentage of correct answer " + TEXT_GREEN + result + " %" + TEXT_RESET);
         } else if (result >= 40) {
@@ -318,7 +325,6 @@ public class Run {
         String life2 = Graphics.redHeart;
 
 
-
         do {
 //            System.out.println("Кол-во примеров -1: " + (Data.getWords1().length - 1));
             int wordNumber = randomNumber(activeMassive.length - 1);
@@ -335,26 +341,32 @@ public class Run {
                     answer1 = V3;
                     break;
             }
-
-            System.out.println("\n");
-            System.out.print(++index + ". " + life1 + " " + life2 + " " + Graphics.redHeart + " " + question + "  " + activeMassive[wordNumber][3]);
-            System.out.print("  =  " + answer1 + "  ");
-            String name = sc.nextLine();
-            name = name.toLowerCase();
+            String name;
+            do {
+                System.out.println("\n");
+                System.out.print(++index + ". " + life1 + " " + life2 + " " + Graphics.redHeart + " " + question + "  " + activeMassive[wordNumber][3]);
+                System.out.print("  =  " + answer1 + "  ");
+                name = sc.nextLine();
+                name = name.toLowerCase();
+                // Check that the line is empty
+                if (name.isEmpty())
+                    System.err.println("The line is empty. You should enter the answer! Try again!");
+            }while (name.isEmpty());
             if (activeMassive[wordNumber][indexAnswer1].equals(name)) {
                 System.out.println("Correct: " + TEXT_GREEN + activeMassive[wordNumber][indexAnswer1] + TEXT_RESET + "  =  " + TEXT_GREEN + name + TEXT_RESET);
             } else {
                 System.out.println(TEXT_RED + "Mistake: " + TEXT_RESET + TEXT_GREEN + activeMassive[wordNumber][indexAnswer1] + TEXT_RESET + "  " + '\u2260' + "  " + TEXT_RED + name + TEXT_RESET);
                 if (error == 3) {
                     life1 = Graphics.blackHeart;
-                    System.out.println("Oups you just answer wrong ");}
-                else if (error == 2) {
+                    System.out.println("Oups you just answer wrong ");
+                } else if (error == 2) {
                     life2 = Graphics.blackHeart;
-                    System.out.println("Be careful, you have only one mistake left ");}
+                    System.out.println("Be careful, you have only one mistake left ");
+                }
                 error--;
             }
         }
-        while (error>0);
+        while (error > 0);
         index--;
         LocalTime finishTime = LocalTime.now();
         System.out.println("\nYour test results: ");
@@ -392,6 +404,7 @@ public class Run {
         }
 
     }
+
     public static int randomNumber(int Number) {
         boolean check = true;
         int resultRandom = 0;
