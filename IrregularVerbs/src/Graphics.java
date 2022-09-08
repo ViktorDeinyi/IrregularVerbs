@@ -84,8 +84,8 @@ public class Graphics {
         //титулка меню выбора вида экзамена
 
         String hs14 = hs + hs + hs + hs + hs + hs + hs + hs + hs + hs + hs + hs + hs + hs;
-        System.out.println(luc + hs14 + ruc + "\t" + luc + hs14 + ruc + "\t" + luc + hs14 + ruc + "\t" + luc + hs14 + ruc);
+        System.out.println(luc + hs14 + ruc + "\t" + luc + hs14 + ruc + "\t" + luc + hs14+ hs + ruc + "\t" + luc + hs14 +hs + hs + ruc);
         System.out.println(vs + " " + x + " " + vs + "\t" + vs + " " + y + " " + vs + "\t" + vs + " " + z + " " + vs + "\t" + vs + " " + q + " " + vs + "\t\t\t" + "[RETURN (0)]" + "\t" + "[EXIT (E)]");
-        System.out.println(ldc + hs14 + rdc + "\t" + ldc + hs14 + rdc + "\t" + ldc + hs14 + rdc + "\t" + ldc + hs14 + rdc);
+        System.out.println(ldc + hs14 + rdc + "\t" + ldc + hs14 + rdc + "\t" + ldc + hs14 +hs +rdc + "\t" + ldc + hs14 +hs +hs+ rdc);
     }
 }

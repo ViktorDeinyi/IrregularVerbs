@@ -12,7 +12,7 @@ public class TimeCounter {
             minutesNameEn(diffTime);
             System.out.print("The time you spent on the test was: ");
             System.out.println((diffTime / 60) + " " + minutesIs + " " + (diffTime%60) + " " + secondsIs);
-            timeChange = "test time was :" + ((diffTime / 60) + " " + minutesIs + " : " + (diffTime%60) + " " + secondsIs);
+            timeChange = "test time : " + ((diffTime / 60) + " " + minutesIs  +" "+ (diffTime%60) + " " + secondsIs);
         }
         else if (diffTime >= 3600)
             System.out.println("The time you spent on passing the test was more than an hour, maybe you should choose an easier level?");
@@ -23,17 +23,17 @@ public class TimeCounter {
     public static void secondsNameEn(int checkSeconds) {
         //correct display of seconds name Eng
         int checkSTime = checkSeconds % 60;
-        if (checkSTime == 1 || checkSTime == 21 || checkSTime == 31 || checkSTime == 41 || checkSTime == 51)
-            secondsIs = "second";
-        else secondsIs = "seconds";
+        if (checkSTime == 1)
+            secondsIs = "sec";
+        else secondsIs = "sec";
     }
 
     public static void minutesNameEn(int checkMinutes) {
         //correct display of minutes name Eng
         int checkMTime = checkMinutes / 60;
-        if (checkMTime == 1 || checkMTime == 21 || checkMTime == 31 || checkMTime == 41 || checkMTime == 51)
-            minutesIs = "minute";
-        else minutesIs = "minutes";
+        if (checkMTime == 1)
+            minutesIs = "min";
+        else minutesIs = "min";
     }
 
     public static void secondsNameRu(int checkSeconds) {

@@ -17,25 +17,25 @@ public class Menus {
 
     public static void askAboutRegistration() {
         System.out.println("\nWould you like to use program with the name or incognito?");
-        Graphics.frameRegistration("1.WITH NAME", "2.PRIVATE ");
+        Graphics.frameRegistration("1.WITH NAME", "2.INCOGNITO");
         Scanner sc = new Scanner(System.in);
         String userAnswer = sc.next();
         sc.nextLine();
         if (userAnswer.equals("1")) {
             askNewOrExist();
         } else if (userAnswer.equals("2")) {
-            Files.userName = "NoStatistics";
+            Files.userNameOriginal = "NoStatistics";
             learningType();
         } else if (askLearningType.equals("e") || askLearningType.equals("E")) {
             Run.exit();
         } else {
-            System.out.println("Looks like you entered the wrong characters. Let`s try again... ");
+            System.out.println(Graphics.TEXT_YELLOW+"Looks like you entered the wrong characters. Let`s try again... "+ Graphics.TEXT_RESET);
         }
     }
 
     public static void askNewOrExist() {
         System.out.println("\nYou can enter a new one or use name from previous sessions");
-        Graphics.frameNewOld("1.NEW NAME ", "2.EXISTING");
+        Graphics.frameNewOld("1.NEW NAME ", "2.EXISTING ");
         Scanner sc = new Scanner(System.in);
         String userAnswer = sc.next();
         sc.nextLine();
@@ -48,18 +48,18 @@ public class Menus {
         } else if (askLearningType.equals("e") || askLearningType.equals("E")) {
             Run.exit();
         } else {
-            System.out.println("Looks like you entered the wrong characters. Let`s try again... ");
+            System.out.println(Graphics.TEXT_YELLOW+"Looks like you entered the wrong characters. Let`s try again... "+ Graphics.TEXT_RESET);
         }
     }
 
     public static void checkExistingUser() {
-        System.out.println("\nEnter name of existing user");
+        System.out.println("\nEnter existing user`s name");
         Scanner sc = new Scanner(System.in);
         String enterUserName = sc.next();
         sc.nextLine();
         if (Files.userIsExist(enterUserName)) {
-            Files.userName = enterUserName;
-            System.out.println("\n\tHello, " + Files.userName + "!");
+            Files.userNameOriginal = enterUserName;
+            System.out.println("\n\tHello " + Files.userNameOriginal);
             userMenu();
         } else {
             System.out.println("There is no user with such name ");
@@ -75,7 +75,7 @@ public class Menus {
             } else if (newOne.equals("e") || askLearningType.equals("E")) {
                 Run.exit();
             } else {
-                System.out.println("Looks like you entered the wrong characters. Let`s try again... ");
+                System.out.println(Graphics.TEXT_YELLOW+"Looks like you entered the wrong characters. Let`s try again... "+ Graphics.TEXT_RESET);
             }
         }
     }
@@ -83,41 +83,43 @@ public class Menus {
 
     public static void userMenu() {
         System.out.println("\t\nWhat would you like to do?");
-        System.out.println("\n\t[Start lessons (1)]\t\t[Check statistics (2)]\t\t[Choose new name (3)]\t\t\t[RETURN (0)]\t[EXIT (E)]");
+        System.out.println("\n\t[START LESSON (1)]\t\t[CHECK STATISTICS (2)]\t\t[CHOOSE NEW NAME (3)]\t\t\t[RETURN (0)]\t[EXIT (E)]");
         String choose = sc.next();
         sc.nextLine();
         if (choose.equals("1")) {
             learningType();
         } else if (choose.equals("2")) {
-            Files.readFile(Files.userName);
+            Files.readFile(Files.userNameOriginal);
             userMenu();
+        } else if (choose.equals("3")) {
+            checkExistingUser();
         } else if (choose.equals("0")) {
             askNewOrExist();
         } else if (choose.equals("e") || choose.equals("E")) {
             Run.exit();
         } else {
-            System.out.println("Looks like you entered the wrong characters. Let`s try again... ");
+            System.out.println(Graphics.TEXT_YELLOW+"Looks like you entered the wrong characters. Let`s try again... "+Graphics.TEXT_RESET);
         }
 
     }
 
     public static void anotherNew() {
-        Files.userName = "NoStatistics";
-        System.out.println("This name already exist");
+        Files.userNameOriginal = "NoStatistics";
+        System.out.println("This name already exists");
         System.out.println("\n\t[TRY ANOTHER (1)]\t\t[START WITHOUT NAME (2)]\t\t\t\t\t\t\t\t\t[RETURN (0)]\t[EXIT (E)]");
         String ns = sc.next();
         sc.nextLine();
         if (ns.equals("1")) {
             Files.newFFile();
         } else if (ns.equals("2")) {
-            Files.userName = "NoStatistics";
+            Files.userNameOriginal = "NoStatistics";
             learningType();
         } else if (ns.equals("0")) {
             askNewOrExist();
         } else if (ns.equals("e") || ns.equals("E")) {
             Run.exit();
         } else {
-            System.out.println("Looks like you entered the wrong characters. Let`s try again... ");
+            System.out.println(Graphics.TEXT_YELLOW+"Looks like you entered the wrong characters. Let`s try again... "+Graphics.TEXT_RESET);
         }
     }
 
@@ -141,15 +143,15 @@ public class Menus {
             complexity = true;
             levelOfDifficult(complexity);
             System.out.println("In this quiz you write the answer in the specified form of the given verb");
-            System.out.println(Run.TEXT_RED + "Some words in v2() & v3() have two meanings, please enter them using a spase " + Run.TEXT_RESET);
-            System.out.println("The game goes to the first mistake. \n \t\t\tGood luck.  May the force be with you ...\n");
+            System.out.println(Run.TEXT_RED + "Some verbs in v2() & v3() have two meanings, please enter them using a spase " + Run.TEXT_RESET);
+            System.out.println("The game runs until you make three mistakes. \n \t\t\tGood luck!  May the force be with you ...\n");
             superQuizInfo();
         } else if (askLearningType.equals("0")) {
             askAboutRegistration();
         } else if (askLearningType.equals("e") || askLearningType.equals("E")) {
             Run.exit();
         } else {
-            System.out.println("Looks like you entered the wrong characters. Let`s try again... ");
+            System.out.println(Graphics.TEXT_YELLOW+"Looks like you entered the wrong characters. Let`s try again... "+Graphics.TEXT_RESET);
             Menus.learningType();
         }
 
@@ -187,7 +189,7 @@ public class Menus {
     public static void examType() {
         //выбор типа экзамена
         System.out.println("\t\t\tSelect the type of test ");
-        Graphics.frameExamType("1.INF \u2192 UKR ", "2.UKR \u2192 INF ", "3.INF\u2192 V2+V3", "4.UKR\u2192V1V2V3");
+        Graphics.frameExamType("1.INF \u2192 UKR ", "2.UKR \u2192 INF ", "3.INF \u2192 V2+V3", "4.UKR\u2192V1+V2+V3");
         askExamType = sc.next();
         sc.nextLine();
         if (askExamType.equals("1")) {
@@ -203,13 +205,13 @@ public class Menus {
         } else if (askExamType.equals("3")) {
             chosenExamType = "Translate " + Run.V1 + " \u2192 " + Run.V2 + " & " + Run.V3;
             System.out.println(chosenExamType);
-            System.out.println(Run.TEXT_RED + "Some words in v2() & v3() have two meanings, please enter them using a spase " + Run.TEXT_RESET);
+            System.out.println(Run.TEXT_RED + "Some verbs in v2() & v3() have two meanings, please enter them using a spase " + Run.TEXT_RESET);
             Run.checkNewTest = true;
             Run.examRun(0, 1, 2, -1, active);
         } else if (askExamType.equals("4")) {
             chosenExamType = "Translate " + Run.UKR + " \u2192 " + Run.V1 + " & " + Run.V2 + " & " + Run.V3;
             System.out.println(chosenExamType);
-            System.out.println(Run.TEXT_RED + "Some words in v2() & v3() have two meanings, please enter them using a spase " + Run.TEXT_RESET);
+            System.out.println(Run.TEXT_RED + "Some verbs in v2() & v3() have two meanings, please enter them using a spase " + Run.TEXT_RESET);
             Run.checkNewTest = true;
             Run.examRun(3, 0, 1, 2, active);
         } else if (askExamType.equals("0")) {
@@ -222,22 +224,22 @@ public class Menus {
 
     public static void amountOfTests() {
         //выбор кол-ва тестов
-        System.out.println("\t\t\tHow many words would you like to have in exam? (1-" + (active.length - 1) + ")" + "\t\t\t\t\t\t" + "[RETURN (0)]");
+        System.out.println("\t\t\tHow many verbs would you like to have in exam? (1-" + (active.length - 1) + ")" + "\t\t\t\t\t\t" + "[RETURN (0)]");
         try {
             cases = sc.nextInt();
             sc.nextLine();
         } catch (InputMismatchException exe) {
-            System.out.println("Хм, похоже ввели некорректный формат цифр ... \nДавай попробуем ввести правильно:");
+            System.out.println(Graphics.TEXT_YELLOW+"Looks like you entered the wrong characters. Let`s try again... "+Graphics.TEXT_RESET);
             sc.nextLine();
             Menus.amountOfTests();
         }
         if (0 > cases || (active.length - 1) < cases) {
-            System.out.println("Looks like we don't have enough words for this test. Please choose fewer.");
+            System.out.println(Graphics.TEXT_YELLOW+"Looks like we don't have enough verbs for this test. Please choose less."+ Graphics.TEXT_RESET);
             Menus.amountOfTests();
         } else if (cases == 0) {
             examType();
         }
-        System.out.println("Number of words in the exam is:" + cases + "\nLets Start...");
+        System.out.println("Number of verbs in the exam is:" + cases + "\nLet`s Start...");
 
     }
 
@@ -254,7 +256,7 @@ public class Menus {
         } else if (askSuperQuiz.equals("e") || askSuperQuiz.equals("E")) {
             Run.exit();
         } else {
-            System.out.println("Looks like you entered the wrong characters. Let`s try again... ");
+            System.out.println(Graphics.TEXT_YELLOW +"Looks like you entered the wrong characters. Let`s try again... " + Graphics.TEXT_RESET);
             superQuizInfo();
         }
     }
