@@ -11,7 +11,7 @@ public class TimeCounter {
             secondsNameEn(diffTime);
             minutesNameEn(diffTime);
             System.out.print("The time you spent on the test was: ");
-            System.out.println((diffTime / 60) + " " + minutesIs + " : " + (diffTime%60) + " " + secondsIs);
+            System.out.println((diffTime / 60) + " " + minutesIs + " " + (diffTime%60) + " " + secondsIs);
             timeChange = "test time was :" + ((diffTime / 60) + " " + minutesIs + " : " + (diffTime%60) + " " + secondsIs);
         }
         else if (diffTime >= 3600)
