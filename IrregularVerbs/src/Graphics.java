@@ -25,7 +25,7 @@ public class Graphics {
              l15 = l15 + star;}
         System.out.println(TEXT_PURPLE + l15 + l15 + l15 + l15);
         System.out.print(l15);
-        System.out.print("  STUDY SOME IRREGULAR VERBS  ");
+        System.out.print("  MEMORIZING IRREGULAR VERBS  ");
         System.out.println(l15);
         System.out.println(l15 + l15 + l15 + l15 + TEXT_RESET + "\n\n");
         System.out.println("\t\t\t\t\t\t\tHello!\n\t\tLet's start learning irregular verbs together!");
@@ -110,13 +110,19 @@ public class Graphics {
         System.out.println(vs + " " + x + " " + vs + "\t" + vs + " " + y + " " + vs + "\t" + vs + " " + z + " " + vs + "\t" + vs + " " + q + " " + vs + "\t\t\t" + "[GO BACK (0)]" + "\t" + "[EXIT (E)]");
         System.out.println(ldc + hs14 + rdc + "\t" + ldc + hs14 + rdc + "\t" + ldc + hs14 +hs +rdc + "\t" + ldc + hs14 +hs +hs+ rdc);
     }
-    public static void finish(){
-        System.out.println(TEXT_PURPLE+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+TEXT_RESET);
-        System.out.println(TEXT_PURPLE+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+TEXT_RESET);
-        System.out.println(TEXT_PURPLE+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+TEXT_RESET);
-        System.out.println(TEXT_PURPLE+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+TEXT_RESET);
-        System.out.println(TEXT_PURPLE+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+TEXT_RESET);
-
-
+    public static void endLine() {
+        String l15 = star;
+        String l11 = star;
+        for (int i=0;i<14; i++ ){
+            l15 = l15 + star;}
+        for (int i=0;i<10; i++ ){
+            l11 = l11 + star;}
+        System.out.println(TEXT_PURPLE + l15 + l15 + l15 + l15);
+        System.out.print(l11);
+        System.out.print(" THANK YOU FOR USING OUR APPLICATION  ");
+        System.out.println(l11);
+        System.out.println(l15 + l15 + l15 + l15 + TEXT_RESET + "\n\n");
+        System.out.println("\t\t\t\t\t\t\tHello!\n\t\tLet's start learning irregular verbs together!");
     }
+
 }

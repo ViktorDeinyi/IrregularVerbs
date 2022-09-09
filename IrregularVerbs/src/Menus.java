@@ -45,7 +45,10 @@ public class Menus {
             String userAnswer = sc.next();
             sc.nextLine();
             switch (userAnswer) {
-                case "1" -> Files.newFFile();
+                case "1" -> {
+                    Files.newFFile();
+                    learningType();
+                }
                 case "2" -> checkExistingUser();
                 case "0" -> askAboutRegistration();
                 case "e", "E" -> Run.exit();
@@ -62,7 +65,7 @@ public class Menus {
         System.out.println("This name already exists");
         boolean checkWrongInput = false;
         do {
-            System.out.println("\n\t[TRY ANOTHER (1)]\t\t[START INCOGNITO (2)]\t\t\t\t\t\t\t\t\t[GO BACK (0)]\t[EXIT (E)]");
+            System.out.println("\n\t[TRY ANOTHER (1)]\t\t[START INCOGNITO (2)]\t\t\t\t\t\t\t\t\t\t[GO BACK (0)]\t[EXIT (E)]");
             String userAnswer = sc.next();
             sc.nextLine();
             switch (userAnswer) {
@@ -257,7 +260,7 @@ public class Menus {
     public static void superQuizInfo() {
         boolean checkWrongInput = false;
         do {
-            System.out.println("[LET`S ROCK (1)]\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[NOT SURE ANYMORE (0)]");
+            System.out.println("\t[LET`S ROCK (1)]\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[NOT SURE ANYMORE (0)]");
             String userAnswer = sc.next();
             sc.nextLine();
             switch (userAnswer) {

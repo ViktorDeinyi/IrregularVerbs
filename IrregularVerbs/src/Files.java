@@ -14,7 +14,7 @@ public class Files {
         try {
             File newOne = new File(name);
             if (newOne.createNewFile()) {
-                System.out.println("Ok " + newOne.getName());
+                System.out.println("New user " + newOne.getName() + " was created.");
             } else {
                 Menus.anotherNew();
             }
@@ -29,7 +29,7 @@ public class Files {
             FileWriter user = new FileWriter(userName, true);
             user.write(w);
             user.close();
-            System.out.println(userNameOriginal + " statistics successfully save.");
+            System.out.println(userNameOriginal + " statistics was successfully saved.");
         } catch (IOException e) {
             System.out.println("Error ");
             e.printStackTrace();

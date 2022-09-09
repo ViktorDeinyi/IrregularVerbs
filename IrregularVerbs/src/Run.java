@@ -282,7 +282,7 @@ public class Run {
             Files.writeToFile(Files.userNameOriginal, dateFormat.format(dateTimeExam) + " " + Menus.chosenExamType + " " + TimeCounter.timeChange + ".  Errors = " + correctAnswersExam + "/" + index * amountOfAnswers + ". Persent of wright answers = " + result + " %.\n");
 
         //exit menu
-        String buttonWorkOnError = "[WORK ON ERROR (3)]";
+        String buttonWorkOnError = "[WORK ON MISTAKES (3)]";
         String buttonUsersMenu = "[USER`S MENU (4)]";
         String emptyButton = "\t\t\t";
         boolean checkWrongInput = false;
@@ -293,7 +293,7 @@ public class Run {
             if (error == 0) {
                 buttonWorkOnError = emptyButton;
             }
-            System.out.println("\n\t[TRY AGAIN (1)]\t\t[TRY SAME (2)]\t\t" + buttonWorkOnError + "\t\t\t\t\t" + buttonUsersMenu + "\t[RETURN (0)]\t[EXIT (E)]");
+            System.out.println("\n\t[TRY NEW (1)]\t\t[TRY SAME (2)]\t\t" + buttonWorkOnError + "\t\t\t\t\t" + buttonUsersMenu + "\t[RETURN (0)]\t[EXIT (E)]");
             String nextStep = sc.next();
             sc.nextLine();
             if (nextStep.equals("1")) {
@@ -411,7 +411,7 @@ public class Run {
         } else if (index >= 0) {
             System.out.println("Correct answers: " + TEXT_RED + (index - 3) + TEXT_RESET + "\n\n");
         }
-        System.out.println("\t[TRY AGAIN (1)]\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[RETURN (0)]\t[EXIT (E)]");
+        System.out.println("\t[TRY AGAIN (1)]\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[GO BACK (0)]\t[EXIT (E)]");
         String nextStep = sc.next();
         if (nextStep.equals("1")) {
             superQuizRun(activeMassive);
@@ -449,8 +449,7 @@ public class Run {
     }
 
     public static void exit() {
-        System.out.println("Thank you for using our application.");
-
+        Graphics.endLine();
         System.exit(0);
     }
 }
