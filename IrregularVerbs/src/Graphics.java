@@ -122,7 +122,6 @@ public class Graphics {
         System.out.print(" THANK YOU FOR USING OUR APPLICATION  ");
         System.out.println(l11);
         System.out.println(l15 + l15 + l15 + l15 + TEXT_RESET + "\n\n");
-        System.out.println("\t\t\t\t\t\t\tHello!\n\t\tLet's start learning irregular verbs together!");
     }
 
 }
