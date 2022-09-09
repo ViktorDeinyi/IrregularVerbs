@@ -238,7 +238,7 @@ public class Menus {
 
     public static void amountOfTests() {
         System.out.print("\t\t\tHow many verbs would you like to have in exam? (1-");
-        System.out.println((activeDataMassive.length - 1) + ")" + "\t\t\t\t[GO BACK (0)]");
+        System.out.println((activeDataMassive.length - 1) + ")" + "\t\t\t\t\t\t[GO BACK (0)]");
         try {
             cases = sc.nextInt();
             sc.nextLine();
@@ -254,7 +254,7 @@ public class Menus {
         } else if (cases == 0) {
             examType();
         }
-        System.out.println("Number of verbs in the exam is: " + cases + "\nLet`s Start...");
+//        System.out.println("Number of verbs in the exam is: " + cases + "\nLet`s Start...");
     }
 
     public static void superQuizInfo() {

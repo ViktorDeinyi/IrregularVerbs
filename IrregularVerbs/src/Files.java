@@ -3,7 +3,7 @@ import java.io.*;
 import java.util.Scanner;
 
 public class Files {
-    public static String userNameOriginal;
+    public static String userNameOriginal = "NoStatistics";
 
     public static void newFFile() {
         Scanner sc = new Scanner(System.in);

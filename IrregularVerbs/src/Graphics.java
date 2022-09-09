@@ -6,8 +6,8 @@ public class Graphics {
     public static final String TEXT_YELLOW = "\u001B[33m";
     public static final String TEXT_PURPLE = "\u001B[35m";
     public static final String BLACK_BOLD = "\033[1;30m";
-    public static final String redHeart = TEXT_RED + "\u2665" + Run.TEXT_RESET;
-    public static final String blackHeart = BLACK_BOLD + "\u2665" + Run.TEXT_RESET;
+    public static final String redHeart = TEXT_RED + "\u2665" + TEXT_RESET;
+    public static final String blackHeart = BLACK_BOLD + "\u2665" + TEXT_RESET;
 
     public static final String luc = String.valueOf('\u250C');
     public static final String ruc = String.valueOf('\u2510');
@@ -18,7 +18,7 @@ public class Graphics {
     public static final String star = String.valueOf('\u066D');
     public static final String wrongInput = TEXT_YELLOW+"Looks like you entered the wrong characters. Let`s try again... "+TEXT_RESET;
     public static final String someWords = TEXT_RED + "Some verbs in v2() & v3() have two meanings, please enter them using a spase " + TEXT_RESET;
-
+    public static final String typeAnswer = TEXT_YELLOW + "The line is empty. You should enter the answer! Try again!" + Graphics.TEXT_RESET;
     public static void title() {
         String l15 = star;
         for (int i=0;i<14; i++ ){
