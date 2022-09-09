@@ -16,6 +16,8 @@ public class Graphics {
     public static final String vs = String.valueOf('\u2502');
     public static final String hs = String.valueOf('\u2500');
     public static final String star = String.valueOf('\u066D');
+    public static final String wrongInput = TEXT_YELLOW+"Looks like you entered the wrong characters. Let`s try again... "+TEXT_RESET;
+    public static final String someWords = TEXT_RED + "Some verbs in v2() & v3() have two meanings, please enter them using a spase " + TEXT_RESET;
 
     public static void title() {
         String l15 = star;
@@ -55,7 +57,7 @@ public class Graphics {
         }
 
         System.out.println("\t\t\t"+luc + hsVar1 + ruc + "     " + luc + hsVar2 + ruc);
-        System.out.println("\t\t\t"+vs + " " + var1 + " " + vs + "     " + vs + " " + var2 + " " + vs+ "\t\t\t\t\t\t\t\t\t\t\t" + "[RETURN (0)]" + "\t" + "[EXIT (E)]");
+        System.out.println("\t\t\t"+vs + " " + var1 + " " + vs + "     " + vs + " " + var2 + " " + vs+ "\t\t\t\t\t\t\t\t\t\t\t" + "[GO BACK (0)]" + "\t" + "[EXIT (E)]");
         System.out.println("\t\t\t"+ldc + hsVar1 + rdc + "     " + ldc + hsVar2 + rdc);
     }
 
@@ -76,7 +78,27 @@ public class Graphics {
 
         String hs14 = hs + hs + hs + hs + hs + hs + hs + hs + hs + hs + hs + hs + hs + hs;
         System.out.println("\t"+luc + hsVar1 + ruc + "  " + luc + hsVar2 + ruc + "  " + luc + hsVar3 + ruc);
-        System.out.println("\t"+vs + " " + var1 + " " + vs + "  " + vs + " " + var2 + " " + vs + "  " + vs + " " + var3 + " " + vs + "\t\t\t\t\t\t\t\t" + "[RETURN (0)]" + "\t" + "[EXIT (E)]");
+        System.out.println("\t"+vs + " " + var1 + " " + vs + "  " + vs + " " + var2 + " " + vs + "  " + vs + " " + var3 + " " + vs + "\t\t\t\t\t\t\t\t" + "[GO MAIN (0)]" + "\t" + "[EXIT (E)]");
+        System.out.println("\t"+ldc + hsVar1 + rdc + "  " + ldc + hsVar2 + rdc + "  " + ldc + hsVar3 + rdc);
+    }
+    public static void frameDifficultType(String var1, String var2, String var3) {
+        //титулка меню выбора типа обучения
+        String hsVar1 = "";
+        for (int i = 0; i < var1.length() + 2; i++){
+            hsVar1 +=hs;
+        }
+        String hsVar2 = "";
+        for (int i = 0; i < var2.length() + 2; i++){
+            hsVar2 +=hs;
+        }
+        String hsVar3 = "";
+        for (int i = 0; i < var3.length() + 2; i++){
+            hsVar3 +=hs;
+        }
+
+        String hs14 = hs + hs + hs + hs + hs + hs + hs + hs + hs + hs + hs + hs + hs + hs;
+        System.out.println("\t"+luc + hsVar1 + ruc + "  " + luc + hsVar2 + ruc + "  " + luc + hsVar3 + ruc);
+        System.out.println("\t"+vs + " " + var1 + " " + vs + "  " + vs + " " + var2 + " " + vs + "  " + vs + " " + var3 + " " + vs + "\t\t\t\t\t\t\t\t" + "[GO BACK (0)]" + "\t" + "[EXIT (E)]");
         System.out.println("\t"+ldc + hsVar1 + rdc + "  " + ldc + hsVar2 + rdc + "  " + ldc + hsVar3 + rdc);
     }
 
@@ -85,7 +107,16 @@ public class Graphics {
 
         String hs14 = hs + hs + hs + hs + hs + hs + hs + hs + hs + hs + hs + hs + hs + hs;
         System.out.println(luc + hs14 + ruc + "\t" + luc + hs14 + ruc + "\t" + luc + hs14+ hs + ruc + "\t" + luc + hs14 +hs + hs + ruc);
-        System.out.println(vs + " " + x + " " + vs + "\t" + vs + " " + y + " " + vs + "\t" + vs + " " + z + " " + vs + "\t" + vs + " " + q + " " + vs + "\t\t\t" + "[RETURN (0)]" + "\t" + "[EXIT (E)]");
+        System.out.println(vs + " " + x + " " + vs + "\t" + vs + " " + y + " " + vs + "\t" + vs + " " + z + " " + vs + "\t" + vs + " " + q + " " + vs + "\t\t\t" + "[GO BACK (0)]" + "\t" + "[EXIT (E)]");
         System.out.println(ldc + hs14 + rdc + "\t" + ldc + hs14 + rdc + "\t" + ldc + hs14 +hs +rdc + "\t" + ldc + hs14 +hs +hs+ rdc);
+    }
+    public static void finish(){
+        System.out.println(TEXT_PURPLE+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+TEXT_RESET);
+        System.out.println(TEXT_PURPLE+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+TEXT_RESET);
+        System.out.println(TEXT_PURPLE+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+TEXT_RESET);
+        System.out.println(TEXT_PURPLE+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+TEXT_RESET);
+        System.out.println(TEXT_PURPLE+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+star+TEXT_RESET);
+
+
     }
 }

@@ -1,12 +1,13 @@
 
 public class TimeCounter {
+
     public static String secondsIs;
     public static String minutesIs;
     public static String timeChange;
 
     public static void timeChange(int fh, int fm, int fs, int sh, int sm, int ss) {
         // calculate test time
-        int diffTime = ((fh * 60) + (fm * 60) + fs) - ((sh * 60) + (sm * 60) + ss);
+        int diffTime = ((fh * 60*60) + (fm * 60) + fs) - ((sh * 60*60) + (sm * 60) + ss);
         if (diffTime >= 0 && diffTime < 3600) {
             secondsNameEn(diffTime);
             minutesNameEn(diffTime);
@@ -17,7 +18,7 @@ public class TimeCounter {
         else if (diffTime >= 3600)
             System.out.println("The time you spent on passing the test was more than an hour, maybe you should choose an easier level?");
         else if (diffTime < 0)
-            timeChange(fh, fm, fs = fs + 86000, sh, sm, ss);
+            timeChange(fh, fm, fs = fs + 86400, sh, sm, ss);
     }
 
     public static void secondsNameEn(int checkSeconds) {

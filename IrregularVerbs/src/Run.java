@@ -1,12 +1,8 @@
-import java.time.LocalDateTime;
+import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.util.*;
 
 public class Run {
-    public static final String UKR = "(Ukrainian)";
-    public static final String V1 = "(V1 Infinitive)";
-    public static final String V2 = "(V2 Past Simple)";
-    public static final String V3 = "(V3 Participle)";
     public static String answer1;
     public static String answer2;
     public static String answer3;
@@ -36,7 +32,7 @@ public class Run {
             amountOfVerbs = sc.nextByte();
             sc.nextLine();
         } catch (InputMismatchException exe) {
-            System.out.println(Graphics.TEXT_YELLOW+"Sorry, looks like you've typed incorrect symbol... \nLet's try again :)"+Graphics.TEXT_RESET);
+            System.out.println(Graphics.TEXT_YELLOW + "Sorry, looks like you've typed incorrect symbol... \nLet's try again :)" + Graphics.TEXT_RESET);
             sc.nextLine();
             lessonRun(activeMassive);
         }
@@ -63,7 +59,7 @@ public class Run {
         } else if (amountOfVerbs == 0) {
             Menus.learningType();
         } else {
-            System.out.println(Graphics.TEXT_YELLOW+"Sorry, we don't have enough cases for this lesson. Please choose the number between 1-5 to start learning."+Graphics.TEXT_RESET);
+            System.out.println(Graphics.TEXT_YELLOW + "Sorry, we don't have enough cases for this lesson. Please choose the number between 1-5 to start learning." + Graphics.TEXT_RESET);
             lessonRun(activeMassive);
         }
         System.out.println(amountOfVerbs);
@@ -121,7 +117,7 @@ public class Run {
                     name = name.toLowerCase();
                     if (name.isEmpty())
                         System.out.println(Graphics.TEXT_YELLOW + "The line is empty. You should enter the answer! Try again!" + Graphics.TEXT_RESET);
-                }while (name.isEmpty());
+                } while (name.isEmpty());
                 if (activeMassive[wordNumber][indexAnswers[x]].equals(name)) {
                     System.out.println("Correct: " + TEXT_GREEN + activeMassive[wordNumber][indexAnswers[x]] + TEXT_RESET + "  =  " + TEXT_GREEN + name + TEXT_RESET);
                 } else if (name.equals("0")) {
@@ -168,7 +164,7 @@ public class Run {
         for (int w = 0; indexAnswers.length > w; w++) {
             if (indexAnswers[w] < 0) amountOfAnswers--;
         }
-        System.out.println(Menus.cases);
+//        System.out.println(Menus.cases);
         int index = 0;
         double error = 0;
         int[] checkOriginal = new int[Menus.cases];
@@ -182,7 +178,7 @@ public class Run {
             while (i < checkOriginal.length) {
                 if (checkOriginal[i] == wordNumber) {
                     wordNumber = randomNumber(activeMassive.length - 1);
-                    System.out.println("Catcing word number" + wordNumber);
+//                    System.out.println("Catcing word number" + wordNumber);
                     i = -1;
                 }
                 ++i;
@@ -200,7 +196,7 @@ public class Run {
                     name = name.toLowerCase();
                     // Check that the line is empty
                     if (name.isEmpty())
-                        System.out.println(Graphics.TEXT_YELLOW+"The line is empty. You should enter the answer! Try again!"+Graphics.TEXT_RESET);
+                        System.out.println(Graphics.TEXT_YELLOW + "The line is empty. You should enter the answer! Try again!" + Graphics.TEXT_RESET);
                 } while (name.isEmpty());
                 if (activeMassive[wordNumber][indexAnswers[x]].equals(name)) {
                     System.out.println("Correct: " +
@@ -237,12 +233,6 @@ public class Run {
                 correct[i + 1][j] = activeMassive[x][j];
             }
         }
-//        System.out.println(correct.length);
-//        System.out.println(correct[1].length);
-//        System.out.println(checkMistakes);
-//        System.out.println(checkMistakes.get(0));
-//        System.out.println(checkMistakes.size());
-//        System.out.println(checkMistakes.get(1));
 
         //creating an array of test words with errors
         String mistakes[][] = new String[checkMistakes.size() + 1][4];
@@ -261,9 +251,6 @@ public class Run {
         /*System.out.println("Test start time = " + startTime);
         System.out.println("Test end time = " + finishTime + "\n");*/
 
-//        System.out.println("Array of indexes with correct answers:");
-//        System.out.println(Arrays.toString(checkOriginal));
-//        System.out.println("\n");
 
         //start and end time handling
         int fh = finishTime.getHour();
@@ -288,50 +275,73 @@ public class Run {
             System.out.println("Percentage of correct answer: " + TEXT_RED + result + " %" + TEXT_RESET + "\n\n");
         }
 
-        //writing selected statistics to a file
-        LocalDateTime dt = LocalDateTime.now();
-        if ((!(Files.userNameOriginal.equals("NoStatistics")))&&checkNewTest)
-//        Files.writeToFile(Files.userName, "\nStart time :" + startTime.toString() + "\tFinish time:" + finishTime.toString() + ".  Errors = " + error + ". Persent of wright answers = " + result + " %.\n");
-        Files.writeToFile(Files.userNameOriginal,  dt + " " + Menus.chosenExamType + " " + TimeCounter.timeChange + ".  Errors = " + correctAnswersExam + "/" + index * amountOfAnswers + ". Persent of wright answers = " + result + " %.\n");
-        //end of exam transition options
-        if (error == 0)
-            System.out.println("\n\t[TRY AGAIN (1)]\t\t[TRY SAME (2)]\t\t\t\t\t\t\t\t\t\t\t\t\t\t[RETURN (0)]\t[EXIT (E)]");
-        else
-            System.out.println("\t[TRY AGAIN (1)]\t\t[TRY SAME (2)]\t\t[WORK ON ERROR (3)]\t\t\t\t\t\t\t[RETURN (0)]\t[EXIT (E)]");
-        String nextStep = sc.next();
-        if (nextStep.equals("1")) {
-            checkNewTest = true;
-            Run.examRun(indexQuestion, indexAnswer1, indexAnswer2, indexAnswer3, Menus.active);
-        } else if (nextStep.equals("2")) {
-            checkNewTest = false;
-            Menus.cases = correct.length - 1;
-            System.out.println(Menus.cases);
-            Run.examRun(indexQuestion, indexAnswer1, indexAnswer2, indexAnswer3, correct);
-        } else if (nextStep.equals("3")) {
-            System.out.println(TEXT_GREEN + "Let's go working with your mistakes: " + TEXT_RESET + "\n");
-            checkNewTest = false;
-            Menus.cases = mistakes.length - 1;
-            System.out.println(Menus.cases);
-            Run.examRun(indexQuestion, indexAnswer1, indexAnswer2, indexAnswer3, mistakes);
-        } else if (nextStep.equals("0")) {
-            Menus.examType();
-        } else if (nextStep.equals("e") || nextStep.equals("E")) {
-            Run.exit();
-        } else {
-            System.out.println("Looks like you entered the wrong characters. Let`s try again... ");
+        //save statistics to a file
+        Date dateTimeExam = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy hh:mm");
+        if ((!(Files.userNameOriginal.equals("NoStatistics"))) && checkNewTest)
+            Files.writeToFile(Files.userNameOriginal, dateFormat.format(dateTimeExam) + " " + Menus.chosenExamType + " " + TimeCounter.timeChange + ".  Errors = " + correctAnswersExam + "/" + index * amountOfAnswers + ". Persent of wright answers = " + result + " %.\n");
+
+        //exit menu
+        String buttonWorkOnError = "[WORK ON ERROR (3)]";
+        String buttonUsersMenu = "[USER`S MENU (4)]";
+        String emptyButton = "\t\t\t";
+        boolean checkWrongInput = false;
+        do {
+            if (Files.userNameOriginal.equals("NoStatistics")) {
+                buttonUsersMenu = emptyButton;
+            }
+            if (error == 0) {
+                buttonWorkOnError = emptyButton;
+            }
+            System.out.println("\n\t[TRY AGAIN (1)]\t\t[TRY SAME (2)]\t\t" + buttonWorkOnError + "\t\t\t\t\t" + buttonUsersMenu + "\t[RETURN (0)]\t[EXIT (E)]");
+            String nextStep = sc.next();
+            sc.nextLine();
+            if (nextStep.equals("1")) {
+                checkNewTest = true;
+                Run.examRun(indexQuestion, indexAnswer1, indexAnswer2, indexAnswer3, Menus.activeDataMassive);
+            } else if (nextStep.equals("2")) {
+                checkNewTest = false;
+                Menus.cases = correct.length - 1;
+                System.out.println(Menus.cases);
+                Run.examRun(indexQuestion, indexAnswer1, indexAnswer2, indexAnswer3, correct);
+            } else if (nextStep.equals("3")) {
+                if (error == 0) {
+                    checkWrongInput = true;
+                    System.out.println("Looks like you entered the wrong characters. Let`s try again... ");
+                } else {
+                    System.out.println(TEXT_GREEN + "Let's go working with your mistakes: " + TEXT_RESET + "\n");
+                    checkNewTest = false;
+                    Menus.cases = mistakes.length - 1;
+                    Run.examRun(indexQuestion, indexAnswer1, indexAnswer2, indexAnswer3, mistakes);
+                }
+            } else if (nextStep.equals("4")) {
+                if (Files.userNameOriginal.equals("NoStatistics")) {
+                    checkWrongInput = true;
+                    System.out.println("Looks like you entered the wrong characters. Let`s try again... ");
+                } else {
+                    System.out.println("Ок " + Files.userNameOriginal);
+                    Menus.userMenu();
+                }
+            } else if (nextStep.equals("0")) {
+                Menus.examType();
+            } else if (nextStep.equals("e") || nextStep.equals("E")) {
+                Run.exit();
+            } else {
+                checkWrongInput = true;
+                System.out.println("Looks like you entered the wrong characters. Let`s try again... ");
+            }
         }
+        while (checkWrongInput);
     }
 
     public static void superQuizRun(String[][] activeMassive) {
         Scanner sc = new Scanner(System.in);
-        question = UKR;
         LocalTime startTime = LocalTime.now();
         byte error = 3;
         boolean check = true;
         int index = 0;
         String life1 = Graphics.redHeart;
         String life2 = Graphics.redHeart;
-
 
         do {
 //            System.out.println("Кол-во примеров -1: " + (Data.getWords1().length - 1));
@@ -340,42 +350,44 @@ public class Run {
 //            System.out.println(indexAnswer1);
             switch (indexAnswer1) {
                 case 0:
-                    answer1 = V1;
+                    answer1 = Menus.V1;
                     break;
                 case 1:
-                    answer1 = V2;
+                    answer1 = Menus.V2;
                     break;
                 case 2:
-                    answer1 = V3;
+                    answer1 = Menus.V3;
                     break;
             }
+
             String name;
             do {
-                System.out.println("\n");
-                System.out.print(++index + ". " + life1 + " " + life2 + " " + Graphics.redHeart + " " + question + "  " + activeMassive[wordNumber][3]);
+                System.out.print("\n" + ++index + ". " + life1 + " " + life2 + " " + Graphics.redHeart + " " + Menus.UKR + "  " + activeMassive[wordNumber][3]);
                 System.out.print("  =  " + answer1 + "  ");
                 name = sc.nextLine();
                 name = name.toLowerCase();
                 // Check that the line is empty
-                if (name.isEmpty())
-                    System.err.println(Graphics.TEXT_YELLOW+"The line is empty. You should enter the answer! Try again!"+Graphics.TEXT_RESET);
-            }while (name.isEmpty());
+                if (name.isEmpty()) {
+                    --index;
+                    System.out.println(Graphics.TEXT_YELLOW + "\nThe line is empty. You should enter the answer! Try again!" + Graphics.TEXT_RESET);
+                }
+            } while (name.isEmpty());
             if (activeMassive[wordNumber][indexAnswer1].equals(name)) {
                 System.out.println("Correct: " + TEXT_GREEN + activeMassive[wordNumber][indexAnswer1] + TEXT_RESET + "  =  " + TEXT_GREEN + name + TEXT_RESET);
             } else {
                 System.out.println(TEXT_RED + "Mistake: " + TEXT_RESET + TEXT_GREEN + activeMassive[wordNumber][indexAnswer1] + TEXT_RESET + "  " + '\u2260' + "  " + TEXT_RED + name + TEXT_RESET);
                 if (error == 3) {
                     life1 = Graphics.blackHeart;
-                    System.out.println(Graphics.TEXT_YELLOW+"Oops, your answer is wrong "+ Graphics.TEXT_RESET);
+                    System.out.println(Graphics.TEXT_YELLOW + "\nOops, your answer is wrong " + Graphics.TEXT_RESET);
                 } else if (error == 2) {
                     life2 = Graphics.blackHeart;
-                    System.out.println(Graphics.TEXT_YELLOW+"Be careful, you have only one mistake left "+ Graphics.TEXT_RESET);
+                    System.out.println(Graphics.TEXT_YELLOW + "\nBe careful, you have only one mistake left " + Graphics.TEXT_RESET);
                 }
                 error--;
             }
         }
         while (error > 0);
-        index--;
+
         LocalTime finishTime = LocalTime.now();
         System.out.println("\nYour test results: ");
         /*System.out.println("Test start time = " + startTime);
@@ -390,14 +402,14 @@ public class Run {
         int ss = startTime.getSecond();
         TimeCounter.timeChange(fh, fm, fs, sh, sm, ss);
 
-        System.out.println(index);
+//        System.out.println(index);
 
         if (index >= 100) {
-            System.out.println("Correct answers: " + TEXT_GREEN + index + TEXT_RESET);
+            System.out.println("Correct answers: " + TEXT_GREEN + (index - 3) + TEXT_RESET);
         } else if (index >= 50) {
-            System.out.println("Correct answers: " + TEXT_YELLOW + index + TEXT_RESET);
+            System.out.println("Correct answers: " + TEXT_YELLOW + (index - 3) + TEXT_RESET);
         } else if (index >= 0) {
-            System.out.println("Correct answers: " + TEXT_RED + index + TEXT_RESET + "\n\n");
+            System.out.println("Correct answers: " + TEXT_RED + (index - 3) + TEXT_RESET + "\n\n");
         }
         System.out.println("\t[TRY AGAIN (1)]\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[RETURN (0)]\t[EXIT (E)]");
         String nextStep = sc.next();
@@ -438,6 +450,7 @@ public class Run {
 
     public static void exit() {
         System.out.println("Thank you for using our application.");
+
         System.exit(0);
     }
 }
