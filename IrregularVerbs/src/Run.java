@@ -264,8 +264,8 @@ public class Run {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy hh:mm");
         if ((!(Files.userNameOriginal.equals("NoStatistics"))) && checkNewTest)
             Files.writeToFile(Files.userNameOriginal, dateFormat.format(dateTimeExam) + " " + Menus.chosenExamType
-                    + " " + TimeCounter.timeChange + ".  Errors = " + correctAnswersExam + "/" + index * amountOfAnswers
-                    + ". Percentage of wright answers = " + result + " %.\n");
+                    + " " + TimeCounter.timeChange + ".  Mistakes = " + correctAnswersExam + "/" + index * amountOfAnswers
+                    + ". Percentage of correct answers = " + result + " %.\n");
 
         //exit menu
         String buttonWorkOnError = "[WORK ON MISTAKES (3)]";
