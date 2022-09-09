@@ -36,6 +36,7 @@ public class Run {
             sc.nextLine();
             lessonRun(activeMassive);
         }
+        System.out.println("  INF,  V1,  V2,  UKR");
         if (amountOfVerbs == 1) {
             for (int i = 1; i < 11; i++) {
                 System.out.println(Arrays.toString(activeMassive[i]));
@@ -62,8 +63,7 @@ public class Run {
             System.out.println(Graphics.TEXT_YELLOW + "Sorry, we don't have enough cases for this lesson. Please choose the number between 1-5 to start learning." + Graphics.TEXT_RESET);
             lessonRun(activeMassive);
         }
-        System.out.println(amountOfVerbs);
-
+//        System.out.println(amountOfVerbs);
 
         System.out.println("\n" + "What you would like to do next? :  ");
         System.out.println("\t[Learn another verbs (1)]\t\t[Take a quiz with learned words (2)]\t\t\t\t[RETURN (0)]\t[EXIT (E)]");
