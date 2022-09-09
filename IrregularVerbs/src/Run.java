@@ -253,11 +253,11 @@ public class Run {
         TimeCounter.timeChange(fh, fm, fs, sh, sm, ss);
         System.out.println("Number of correct answers: " + correctAnswersExam + "/" + index * amountOfAnswers);
         if (result >= 80) {
-            System.out.println("Percentage of correct answer " + Graphics.TEXT_GREEN + result + " %" + Graphics.TEXT_RESET);
+            System.out.println("Percentage of correct answers " + Graphics.TEXT_GREEN + result + " %" + Graphics.TEXT_RESET);
         } else if (result >= 40) {
-            System.out.println("Percentage of correct answer: " + Graphics.TEXT_YELLOW + result + " %" + Graphics.TEXT_RESET);
+            System.out.println("Percentage of correct answers: " + Graphics.TEXT_YELLOW + result + " %" + Graphics.TEXT_RESET);
         } else if (result >= 0) {
-            System.out.println("Percentage of correct answer: " + Graphics.TEXT_RED + result + " %" + Graphics.TEXT_RESET + "\n\n");
+            System.out.println("Percentage of correct answers: " + Graphics.TEXT_RED + result + " %" + Graphics.TEXT_RESET + "\n\n");
         }
         //save statistics to a file
         Date dateTimeExam = new Date();

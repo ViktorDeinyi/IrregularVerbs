@@ -17,7 +17,7 @@ public class Data {
             {"hold", "held", "held", "тримати"},
             {"hide", "hid", "hidden", "ховати"},
             {"eat", "ate", "eaten", "їсти"},
-            {"find", "found", "found", "шукати"},
+            {"find", "found", "found", "знайти"},
             {"get", "got", "got", "отримувати"},
             {"give", "gave", "given", "давати"},
             {"go", "went", "gone", "іти"},
