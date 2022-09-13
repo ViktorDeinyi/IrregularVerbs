@@ -270,7 +270,7 @@ public class Run {
         //exit menu
         String buttonWorkOnError = "[WORK ON MISTAKES (3)]";
         String buttonUsersMenu = "[USER`S MENU (4)]";
-        String emptyButton = "\t\t";
+        String emptyButton = "\t\t\t\t";
         String emptyButton1 = "\t\t\t\t\t";
         boolean checkWrongInput = false;
         do {
