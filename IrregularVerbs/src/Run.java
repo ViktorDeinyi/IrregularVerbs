@@ -27,37 +27,18 @@ public class Run {
             sc.nextLine();
             lessonRun(activeMassive);
         }
-        if (amountOfVerbs == 1) {
-            System.out.printf("%-16s%-16s%-16s%s%n", "INF", "V1", "V2", "V3");
-            for (int i = 1; i < 11; i++) {
-                System.out.printf("%-16s%-16s%-16s%s%n", (activeMassive[i][0]), (activeMassive[i][1]), (activeMassive[i][2]), (activeMassive[i][3]));
+        switch (amountOfVerbs) {
+            case 1, 2, 3, 4, 5 -> {
+                System.out.printf("%-20s%-17s%-17s%s%n", "INF", "V1", "V2", "V3");
+                for (int i = ((amountOfVerbs * 10) - 9); i < ((amountOfVerbs * 10) + 1); i++)
+                    System.out.printf("%-17s%-17s%-17s%s%n", (activeMassive[i][0]), "|  " + (activeMassive[i][1]), "|  " + (activeMassive[i][2]), "|  " + (activeMassive[i][3]));
             }
-        } else if (amountOfVerbs == 2) {
-            System.out.printf("%-16s%-16s%-16s%s%n", "INF", "V1", "V2", "V3");
-            for (int i = 11; i < 21; i++) {
-                System.out.printf("%-16s%-16s%-16s%s%n", (activeMassive[i][0]), (activeMassive[i][1]), (activeMassive[i][2]), (activeMassive[i][3]));
+            case 0 -> Menus.learningType();
+            default -> {
+                System.out.print(Graphics.TEXT_YELLOW + "Sorry, we don't have enough cases for this lesson. ");
+                System.out.println("Please choose the number between 1-5 to start learning.\n" + Graphics.TEXT_RESET);
+                lessonRun(activeMassive);
             }
-        } else if (amountOfVerbs == 3) {
-            System.out.printf("%-16s%-16s%-16s%s%n", "INF", "V1", "V2", "V3");
-            for (int i = 21; i < 31; i++) {
-                System.out.printf("%-16s%-16s%-16s%s%n", (activeMassive[i][0]), (activeMassive[i][1]), (activeMassive[i][2]), (activeMassive[i][3]));
-            }
-        } else if (amountOfVerbs == 4) {
-            System.out.printf("%-16s%-16s%-16s%s%n", "INF", "V1", "V2", "V3");
-            for (int i = 31; i < 41; i++) {
-                System.out.printf("%-16s%-16s%-16s%s%n", (activeMassive[i][0]), (activeMassive[i][1]), (activeMassive[i][2]), (activeMassive[i][3]));
-            }
-        } else if (amountOfVerbs == 5) {
-            System.out.printf("%-16s%-16s%-16s%s%n", "INF", "V1", "V2", "V3");
-            for (int i = 41; i < 51; i++) {
-                System.out.printf("%-16s%-16s%-16s%s%n", (activeMassive[i][0]), (activeMassive[i][1]), (activeMassive[i][2]), (activeMassive[i][3]));
-            }
-        } else if (amountOfVerbs == 0) {
-            Menus.learningType();
-        } else {
-            System.out.print(Graphics.TEXT_YELLOW + "Sorry, we don't have enough cases for this lesson. ");
-            System.out.println("Please choose the number between 1-5 to start learning.\n" + Graphics.TEXT_RESET);
-            lessonRun(activeMassive);
         }
         System.out.println("\n" + "What you would like to do next? :  ");
         boolean checkWrongInput = false;
