@@ -63,7 +63,7 @@ public class Data {
             {"lie", "lied", "lied", "обманювати"},
             {"deal", "dealt", "dealt", "мати справу,домовлятися"},
             {"draw", "drew", "drawn", "малювати"},
-            {"dream", "dreamt, dreamed", "dreamt, dreamed", "мріяти"},
+            {"dream", "dreamt dreamed", "dreamt dreamed", "мріяти"},
             {"drink", "drank", "drunk", "пити"},
             {"drive", "drove", "driven", "кермувати"},
             {"fall", "fell", "fallen", "падати"},

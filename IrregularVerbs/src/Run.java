@@ -28,29 +28,29 @@ public class Run {
             lessonRun(activeMassive);
         }
         if (amountOfVerbs == 1) {
-            System.out.println("  INF,  V1,  V2,  UKR");
+            System.out.printf("%-16s%-16s%-16s%s%n", "INF", "V1", "V2", "V3");
             for (int i = 1; i < 11; i++) {
-                System.out.println(Arrays.toString(activeMassive[i]));
+                System.out.printf("%-16s%-16s%-16s%s%n", (activeMassive[i][0]), (activeMassive[i][1]), (activeMassive[i][2]), (activeMassive[i][3]));
             }
         } else if (amountOfVerbs == 2) {
-            System.out.println("  INF,  V1,  V2,  UKR");
+            System.out.printf("%-16s%-16s%-16s%s%n", "INF", "V1", "V2", "V3");
             for (int i = 11; i < 21; i++) {
-                System.out.println(Arrays.toString(activeMassive[i]));
+                System.out.printf("%-16s%-16s%-16s%s%n", (activeMassive[i][0]), (activeMassive[i][1]), (activeMassive[i][2]), (activeMassive[i][3]));
             }
         } else if (amountOfVerbs == 3) {
-            System.out.println("  INF,  V1,  V2,  UKR");
+            System.out.printf("%-16s%-16s%-16s%s%n", "INF", "V1", "V2", "V3");
             for (int i = 21; i < 31; i++) {
-                System.out.println(Arrays.toString(activeMassive[i]));
+                System.out.printf("%-16s%-16s%-16s%s%n", (activeMassive[i][0]), (activeMassive[i][1]), (activeMassive[i][2]), (activeMassive[i][3]));
             }
         } else if (amountOfVerbs == 4) {
-            System.out.println("  INF,  V1,  V2,  UKR");
+            System.out.printf("%-16s%-16s%-16s%s%n", "INF", "V1", "V2", "V3");
             for (int i = 31; i < 41; i++) {
-                System.out.println(Arrays.toString(activeMassive[i]));
+                System.out.printf("%-16s%-16s%-16s%s%n", (activeMassive[i][0]), (activeMassive[i][1]), (activeMassive[i][2]), (activeMassive[i][3]));
             }
         } else if (amountOfVerbs == 5) {
-            System.out.println("  INF,  V1,  V2,  UKR");
+            System.out.printf("%-16s%-16s%-16s%s%n", "INF", "V1", "V2", "V3");
             for (int i = 41; i < 51; i++) {
-                System.out.println(Arrays.toString(activeMassive[i]));
+                System.out.printf("%-16s%-16s%-16s%s%n", (activeMassive[i][0]), (activeMassive[i][1]), (activeMassive[i][2]), (activeMassive[i][3]));
             }
         } else if (amountOfVerbs == 0) {
             Menus.learningType();
